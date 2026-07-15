@@ -1,0 +1,93 @@
+---
+// Internal component-review page (successor to the retired /specimen).
+// Not linked from anywhere; retired once the components appear in real pages.
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Disclosure from "../components/Disclosure.astro";
+import StatTile from "../components/StatTile.astro";
+---
+
+<Base title="Lab (internal) · Sahil Gaji">
+  <Header />
+  <main>
+    <h1>Lab</h1>
+    <p class="howto">
+      Internal page. Component review with real content — check both themes,
+      phone and desktop, keyboard navigation (Tab to each control, Enter/Space
+      to toggle).
+    </p>
+
+    <section>
+      <h2>Stat tiles with definition flyouts</h2>
+      <div class="grid">
+        <StatTile
+          value="< 30 min"
+          label="per application"
+          definition="Time from job posting to submitted application, including tailoring, quality checks, and human review."
+        />
+        <StatTile
+          value="2 h → 10 min"
+          label="daily search effort"
+          definition="Daily time spent finding and screening relevant postings, before vs. after building the automation pipeline."
+        />
+        <StatTile
+          value="≥ 75%"
+          label="ATS quality gate"
+          definition="Minimum keyword-match score a tailored CV must reach against the job description before anything is submitted."
+        />
+      </div>
+    </section>
+
+    <section>
+      <h2>Disclosure block</h2>
+      <Disclosure label="What I'd do differently">
+        <p>
+          If I were starting again, I would spend less time trying to perfect
+          the automation and more time validating whether each improvement
+          actually increased interview quality. Early on, I enjoyed building
+          the system so much that I sometimes optimized the process before
+          proving it solved the right problem. The biggest lesson was that
+          better decisions matter more than more automation.
+        </p>
+      </Disclosure>
+    </section>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  main {
+    max-width: var(--measure-prose);
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-3);
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0 0 var(--space-1);
+  }
+  .howto {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-ink-muted);
+    margin: 0 0 var(--space-6);
+  }
+  section {
+    border-top: 1px solid var(--color-line);
+    padding: var(--space-4) 0;
+  }
+  h2 {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--color-ink-muted);
+    margin: 0 0 var(--space-3);
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+    gap: var(--space-2);
+  }
+</style>

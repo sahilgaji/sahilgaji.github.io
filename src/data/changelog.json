@@ -1,5 +1,11 @@
 [
   {
+    "version": "0.4.0",
+    "date": "2026-07-15",
+    "title": "components & compliance",
+    "notes": "First interaction components — disclosure block and stat tiles with definition flyouts, both zero JavaScript on native elements. Draft Impressum and Datenschutz pages (awaiting a final address). Internal lab page for component review."
+  },
+  {
     "version": "0.3.0",
     "date": "2026-07-15",
     "title": "three voices",

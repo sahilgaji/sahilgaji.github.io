@@ -1,0 +1,49 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Base title="Impressum · Sahil Gaji" lang="de">
+  <Header />
+  <main>
+    <h1>Impressum</h1>
+    <p class="draft">Entwurf — wird vor dem Launch finalisiert.</p>
+
+    <h2>Angaben gemäß § 5 DDG</h2>
+    <p>
+      Sahil Gaji<br />
+      [Anschrift wird vor dem Launch ergänzt]<br />
+      Deutschland
+    </p>
+    <p>E-Mail: sahil.gaji@outlook.com</p>
+
+    <h2>Verantwortlich für den Inhalt gemäß § 18 Abs. 2 MStV</h2>
+    <p>Sahil Gaji, Anschrift wie oben.</p>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  main {
+    max-width: var(--measure-prose);
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-3);
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0 0 var(--space-1);
+  }
+  h2 {
+    font-size: 1.05rem;
+    margin: var(--space-4) 0 var(--space-1);
+  }
+  .draft {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-ink-muted);
+    margin: 0 0 var(--space-4);
+  }
+</style>

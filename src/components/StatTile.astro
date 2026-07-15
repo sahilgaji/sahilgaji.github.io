@@ -1,0 +1,64 @@
+---
+// Stat tile with optional definition flyout (interaction component 3 of 6, Phase 5).
+// Native <details> for the definition: zero JavaScript. Defining metrics in
+// public is itself evidence — every published number gets to explain itself.
+interface Props {
+  value: string;
+  label: string;
+  definition?: string;
+}
+
+const { value, label, definition } = Astro.props;
+---
+
+<div class="tile">
+  <p class="value">{value}</p>
+  <p class="label">{label}</p>
+  {
+    definition && (
+      <details>
+        <summary>definition</summary>
+        <p class="definition">{definition}</p>
+      </details>
+    )
+  }
+</div>
+
+<style>
+  .tile {
+    border: 1px solid var(--color-line);
+    padding: var(--space-3);
+  }
+  .value {
+    font-family: var(--font-mono);
+    font-size: 1.6rem;
+    margin: 0;
+  }
+  .label {
+    font-size: 0.9rem;
+    color: var(--color-ink-muted);
+    margin: var(--space-1) 0 0;
+  }
+  details {
+    margin-top: var(--space-2);
+  }
+  summary {
+    cursor: pointer;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-accent);
+    list-style: none;
+    user-select: none;
+  }
+  summary::-webkit-details-marker {
+    display: none;
+  }
+  summary::before {
+    content: "? ";
+  }
+  .definition {
+    font-size: 0.85rem;
+    color: var(--color-ink-muted);
+    margin: var(--space-1) 0 0;
+  }
+</style>
