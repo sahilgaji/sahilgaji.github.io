@@ -1,5 +1,11 @@
 [
   {
+    "version": "0.3.0",
+    "date": "2026-07-15",
+    "title": "three voices",
+    "notes": "Typography decided from the specimen: Newsreader for display, the system sans for body, Geist Mono for data — self-hosted, OFL. The specimen page is retired; its verdict lives in ADR-003."
+  },
+  {
     "version": "0.2.0",
     "date": "2026-07-15",
     "title": "type & rhythm",
