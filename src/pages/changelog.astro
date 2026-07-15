@@ -1,0 +1,74 @@
+---
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import changelog from "../data/changelog.json";
+---
+
+<Base title="Changelog · Sahil Gaji">
+  <Header />
+  <main>
+    <h1>Changelog</h1>
+    <p class="intro">
+      Every meaningful change to this site, logged. The site is a project;
+      projects keep records.
+    </p>
+    <ul>
+      {
+        changelog.map((entry) => (
+          <li>
+            <p class="head">
+              <span class="version">v{entry.version}</span>
+              <span class="date">{entry.date}</span> — {entry.title}
+            </p>
+            <p class="notes">{entry.notes}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  main {
+    max-width: var(--measure-prose);
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-3);
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0 0 var(--space-1);
+  }
+  .intro {
+    color: var(--color-ink-muted);
+    margin: 0 0 var(--space-6);
+  }
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    border-left: 2px solid var(--color-line);
+    padding-left: var(--space-3);
+    margin-bottom: var(--space-4);
+  }
+  .head {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    margin: 0;
+  }
+  .version {
+    color: var(--color-accent);
+  }
+  .date {
+    color: var(--color-ink-muted);
+  }
+  .notes {
+    margin: var(--space-1) 0 0;
+    font-size: 0.95rem;
+  }
+</style>

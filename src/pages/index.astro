@@ -1,5 +1,9 @@
 ---
 import Base from "../layouts/Base.astro";
+import Footer from "../components/Footer.astro";
+import changelog from "../data/changelog.json";
+
+const latest = changelog[0];
 ---
 
 <Base title="Sahil Gaji">
@@ -8,7 +12,9 @@ import Base from "../layouts/Base.astro";
     <p class="role">Project Management · Digital Transformation · Germany</p>
 
     <div class="log" aria-label="Site status">
-      <p class="entry"><span class="version">v0.1.0</span> — foundation</p>
+      <p class="entry">
+        <span class="version">v{latest.version}</span> — {latest.title}
+      </p>
       <p>
         This site is being built in public. It launches when it meets its
         definition of done — not a date.
@@ -20,9 +26,7 @@ import Base from "../layouts/Base.astro";
     </p>
   </main>
 
-  <footer>
-    <p>© 2026 Sahil Gaji · site v0.1.0</p>
-  </footer>
+  <Footer />
 </Base>
 
 <style>
@@ -57,16 +61,5 @@ import Base from "../layouts/Base.astro";
   }
   .links {
     margin-top: var(--space-8);
-  }
-  footer {
-    max-width: var(--measure-prose);
-    margin: 0 auto;
-    padding: var(--space-4) var(--space-3);
-    border-top: 1px solid var(--color-line);
-  }
-  footer p {
-    font-family: var(--font-mono);
-    font-size: 0.75rem;
-    color: var(--color-ink-muted);
   }
 </style>

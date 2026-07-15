@@ -1,0 +1,14 @@
+[
+  {
+    "version": "0.2.0",
+    "date": "2026-07-15",
+    "title": "type & rhythm",
+    "notes": "Type specimen with candidate faces for the three voices, changelog page, header and footer, CI quality gates. The site can now fail its own build for being slow."
+  },
+  {
+    "version": "0.1.0",
+    "date": "2026-07-15",
+    "title": "foundation",
+    "notes": "Astro scaffold, design tokens, GitHub Pages pipeline, ADRs 001–002, runbook, holding page. Deployed noindex — it launches when it meets its definition of done, not a date."
+  }
+]

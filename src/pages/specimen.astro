@@ -1,0 +1,159 @@
+---
+// Internal type specimen — not linked from anywhere. Candidates for the three
+// voices (Phase 6). All faces are OFL-licensed, self-hosted via Fontsource.
+// Fonts load ONLY on this page; the rest of the site stays on system stacks
+// until the decision is made.
+import "@fontsource-variable/newsreader";
+import "@fontsource-variable/source-serif-4";
+import "@fontsource-variable/geist";
+import "@fontsource-variable/geist-mono";
+import "@fontsource-variable/jetbrains-mono";
+import Base from "../layouts/Base.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Base title="Type specimen (internal) · Sahil Gaji">
+  <Header />
+  <main>
+    <h1>Type specimen</h1>
+    <p class="howto">
+      Internal page. Deciding the three voices: serif (display), sans (text),
+      mono (data). Judge on phone and desktop, light and dark theme, at arm's
+      length. All copy below is real site copy.
+    </p>
+
+    <section>
+      <h2>1 · Display serif — candidate A: Newsreader</h2>
+      <p class="display newsreader">I build systems that keep working when I leave the room.</p>
+      <blockquote class="quote newsreader">
+        The biggest lesson was that better decisions matter more than more automation.
+      </blockquote>
+    </section>
+
+    <section>
+      <h2>1 · Display serif — candidate B: Source Serif 4</h2>
+      <p class="display sourceserif">I build systems that keep working when I leave the room.</p>
+      <blockquote class="quote sourceserif">
+        The biggest lesson was that better decisions matter more than more automation.
+      </blockquote>
+    </section>
+
+    <section>
+      <h2>2 · Text sans — candidate A: Geist</h2>
+      <p class="body geist">
+        People usually come to me when something feels disorganized or unclear.
+        Whether it's a spreadsheet, a workflow, a process, or documentation, I
+        start asking questions, breaking things into smaller parts, identifying
+        dependencies, and looking for ways to make the system easier to
+        understand and maintain. I don't think people come to me because I
+        always have the answer — they come because I'm patient enough to
+        understand the problem before trying to solve it.
+      </p>
+    </section>
+
+    <section>
+      <h2>2 · Text sans — candidate B: system stack</h2>
+      <p class="body">
+        People usually come to me when something feels disorganized or unclear.
+        Whether it's a spreadsheet, a workflow, a process, or documentation, I
+        start asking questions, breaking things into smaller parts, identifying
+        dependencies, and looking for ways to make the system easier to
+        understand and maintain. I don't think people come to me because I
+        always have the answer — they come because I'm patient enough to
+        understand the problem before trying to solve it.
+      </p>
+    </section>
+
+    <section>
+      <h2>3 · Data mono — candidate A: Geist Mono</h2>
+      <div class="mono geistmono">
+        <p><span class="accent">v0.2.0</span> 2026-07-15 — type &amp; rhythm</p>
+        <p>time per application &lt; 30 min · daily search effort 2 h → 10 min</p>
+        <p>Hamburg, 2025 · last updated 2026-07-15</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>3 · Data mono — candidate B: JetBrains Mono</h2>
+      <div class="mono jetbrains">
+        <p><span class="accent">v0.2.0</span> 2026-07-15 — type &amp; rhythm</p>
+        <p>time per application &lt; 30 min · daily search effort 2 h → 10 min</p>
+        <p>Hamburg, 2025 · last updated 2026-07-15</p>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Base>
+
+<style>
+  main {
+    max-width: var(--measure-prose);
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-3);
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0 0 var(--space-1);
+  }
+  .howto {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-ink-muted);
+    margin: 0 0 var(--space-6);
+  }
+  section {
+    border-top: 1px solid var(--color-line);
+    padding: var(--space-4) 0;
+  }
+  h2 {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--color-ink-muted);
+    margin: 0 0 var(--space-3);
+  }
+  .display {
+    font-size: 2.25rem;
+    line-height: 1.2;
+    margin: 0 0 var(--space-3);
+  }
+  .quote {
+    font-size: 1.35rem;
+    line-height: 1.4;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    margin: 0;
+    padding-left: var(--space-3);
+    border-left: 2px solid var(--color-accent);
+  }
+  .body {
+    font-size: 1.05rem;
+    margin: 0;
+  }
+  .mono p {
+    font-size: 0.85rem;
+    margin: 0 0 var(--space-1);
+  }
+  .accent {
+    color: var(--color-accent);
+  }
+
+  .newsreader {
+    font-family: "Newsreader Variable", Georgia, serif;
+  }
+  .sourceserif {
+    font-family: "Source Serif 4 Variable", Georgia, serif;
+  }
+  .geist {
+    font-family: "Geist Variable", system-ui, sans-serif;
+  }
+  .geistmono {
+    font-family: "Geist Mono Variable", Consolas, monospace;
+  }
+  .jetbrains {
+    font-family: "JetBrains Mono Variable", Consolas, monospace;
+  }
+</style>
