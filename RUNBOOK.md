@@ -24,10 +24,9 @@ The site is deployed but deliberately NOT indexable:
 
 1. Remove the noindex meta from `Base.astro`.
 2. Replace `public/robots.txt` with allow-all + sitemap line.
-3. Set `site` in `astro.config.mjs` (enables canonical URLs and the sitemap).
-4. Verify Impressum + Datenschutz pages are live (legal blocker in Germany).
-5. Submit the sitemap to Google Search Console and Bing Webmaster Tools.
-6. Changelog entry `v1.0.0`.
+3. Verify Impressum + Datenschutz pages are live (legal blocker in Germany).
+4. Submit the sitemap to Google Search Console and Bing Webmaster Tools.
+5. Changelog entry `v1.0.0`.
 
 ## Quarterly ritual (~2 h)
 
