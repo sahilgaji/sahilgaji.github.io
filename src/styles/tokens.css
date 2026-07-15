@@ -1,0 +1,45 @@
+/*
+  Design tokens — the single source of the visual language.
+  Rules (Phase 6 of the strategy):
+  - Amber is SEMANTIC: only on interactive or annotative elements. Never decoration.
+  - Never pure black or pure white, in either theme.
+  - Font stacks below are interim system faces; the real faces arrive with the
+    type-specimen decision and will be self-hosted (GDPR: no Google Fonts CDN).
+*/
+:root {
+  /* color — light theme: "paper" */
+  --color-paper: #faf8f5;
+  --color-ink: #211e1a;
+  --color-ink-muted: #6f6862;
+  --color-line: #e8e2d9;
+  --color-accent: #b45309; /* amber, darkened for AA contrast on paper */
+
+  /* type — three voices: sans = body/UI, serif = display, mono = data */
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-serif: Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "Cascadia Code", Consolas, "Courier New", monospace;
+
+  /* spacing — 8px scale */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-6: 3rem;
+  --space-8: 4rem;
+  --space-12: 6rem;
+
+  /* layout */
+  --measure-prose: 45rem; /* ~65–75ch body text */
+  --measure-wide: 72rem;  /* diagrams, dashboard, timeline */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* dark theme: "night notebook" — warm dark, not inverted paper */
+    --color-paper: #17140f;
+    --color-ink: #e9e4dc;
+    --color-ink-muted: #9b938a;
+    --color-line: #2e2921;
+    --color-accent: #f59e0b; /* amber brightened for dark-ground contrast */
+  }
+}

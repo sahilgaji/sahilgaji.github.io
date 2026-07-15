@@ -1,0 +1,4 @@
+# Pre-launch: the whole site stays out of search indexes.
+# Replaced at v1.0 launch — see RUNBOOK.md.
+User-agent: *
+Disallow: /
