@@ -23,6 +23,8 @@ const timeline = [
     org: "Robert Bosch GmbH, Reutlingen",
     body: "Standardized Jira workflows and a PMO reporting system across 3 cross-functional projects, trained 150+ managers and team leads, and cut document retrieval time by roughly 30% migrating documentation to Confluence.",
     aside: "Configuring Jira was maybe a fifth of the actual work. The other four-fifths was convincing 150 people that yet another new tool was worth their time.",
+    caseStudyHref: "/work/bosch-pmo/",
+    caseStudyLabel: "Full case study",
   },
   {
     dates: "Apr 2022 – Sep 2024",
@@ -46,8 +48,10 @@ const timeline = [
     dates: "Jul – Dec 2020",
     title: "Co-Founder (part-time side venture)",
     org: "Club House, Pune",
-    body: "Co-founded a food-and-beverage startup alongside a full-time job. Built VBA tools for billing and inventory, secured ₹600,000 in funding. Handed ownership to the remaining partners after six months — the business kept running. (Full story coming to Work.)",
+    body: "Co-founded a food-and-beverage startup alongside a full-time job. Built VBA tools for invoicing and stock tracking, secured ₹600,000 in funding. Handed ownership to the remaining partners after six months — the business kept running.",
     aside: "Which either means the systems I set up were good, or that I wasn't as essential as I liked to think. Possibly both.",
+    caseStudyHref: "/work/club-house/",
+    caseStudyLabel: "Full case study",
   },
   {
     dates: "Nov 2019 – Oct 2020",
@@ -113,6 +117,9 @@ const shelf = [
               <p class="role-title">{item.title}</p>
               {item.org && <p class="org">{item.org}</p>}
               <p class="body">{item.body}</p>
+              {item.caseStudyHref && (
+                <p class="case-link"><a href={item.caseStudyHref}>{item.caseStudyLabel} →</a></p>
+              )}
               {item.aside && (
                 <Disclosure label="the honest bit">
                   <p class="aside">{item.aside}</p>
@@ -226,6 +233,10 @@ const shelf = [
   .timeline .body {
     margin: 0;
     font-size: 0.95rem;
+  }
+  .case-link {
+    margin: 0.3rem 0 0;
+    font-size: 0.85rem;
   }
   .timeline li :global(.disclosure) {
     margin-top: var(--space-2);

@@ -2,35 +2,54 @@
 import Base from "../../layouts/Base.astro";
 import Header from "../../components/Header.astro";
 import Footer from "../../components/Footer.astro";
+
+const cases = [
+  {
+    href: "/work/career-operating-system/",
+    title: "Apply to fewer jobs, better.",
+    org: "Career Operating System",
+    body: "This job search, run like a transformation project — the real pipeline, a living dashboard, and a retrospective.",
+  },
+  {
+    href: "/work/bosch-pmo/",
+    title: "Getting 150+ people to actually use a new system.",
+    org: "Robert Bosch GmbH",
+    body: "Configuring the tool was the easy fifth of the work. The other four-fifths was training, documentation, and adoption.",
+  },
+  {
+    href: "/work/club-house/",
+    title: "The business that kept running after I left.",
+    org: "Club House",
+    body: "A food-and-beverage startup, co-founded alongside a full-time job. An honest account, not a success story.",
+  },
+];
 ---
 
-<Base title="Work · Sahil Gaji" description="Three case studies, in progress.">
+<Base title="Work · Sahil Gaji" description="Three case studies: a self-built job-search system, a Bosch internship, and a startup that outlived its founder's involvement.">
   <Header current="work" />
   <main>
     <h1>Work</h1>
     <p class="intro">
-      Three case studies are coming here:
+      Three case studies. Each follows the same shape: what happened, what I
+      built, what I'd do differently.
     </p>
-    <ul class="queue">
-      <li>
-        <strong><a href="/work/career-operating-system/">The Career Operating System</a></strong>
-        — this job search, run like a transformation project. Live now,
-        with a digital diagram — the hand-drawn version replaces it soon.
-      </li>
-      <li>
-        <strong>Bosch</strong> — getting 150+ people to actually adopt a new
-        tool, which turned out to matter more than configuring it.
-      </li>
-      <li>
-        <strong>Club House</strong> — the honest story of a food business
-        that kept running after I left it.
-      </li>
+
+    <ul class="cases">
+      {
+        cases.map((c) => (
+          <li>
+            <a href={c.href}>
+              <p class="org">{c.org}</p>
+              <p class="title">{c.title}</p>
+              <p class="body">{c.body}</p>
+            </a>
+          </li>
+        ))
+      }
     </ul>
+
     <p class="note">
-      Each one ships as its own increment, not all at once. Follow the
-      <a href="/changelog/">changelog</a> to see them land — or read
-      <a href="/about/">About</a> for the short version of each role in the
-      meantime.
+      Every future case study ships as its own <a href="/changelog/">changelog</a> entry, not all at once.
     </p>
   </main>
   <Footer lang="en" />
@@ -50,17 +69,50 @@ import Footer from "../../components/Footer.astro";
   }
   .intro {
     font-size: 1.05rem;
-    margin: 0 0 var(--space-3);
+    margin: 0 0 var(--space-6);
+    max-width: 40rem;
   }
-  .queue {
-    padding-left: 1.2rem;
+  .cases {
+    list-style: none;
+    padding: 0;
     margin: 0 0 var(--space-6);
     display: flex;
     flex-direction: column;
-    gap: var(--space-2);
+    gap: var(--space-3);
   }
-  .queue li {
-    font-size: 0.98rem;
+  .cases li {
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+  }
+  .cases a {
+    display: block;
+    padding: var(--space-3);
+    text-decoration: none;
+    color: var(--color-ink);
+  }
+  .cases a:hover {
+    border-color: var(--color-accent);
+  }
+  .cases li:has(a:hover) {
+    border-color: var(--color-accent);
+  }
+  .org {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-accent);
+    margin: 0 0 var(--space-1);
+  }
+  .title {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    margin: 0 0 var(--space-1);
+  }
+  .body {
+    font-size: 0.95rem;
+    color: var(--color-ink-muted);
+    margin: 0;
   }
   .note {
     font-family: var(--font-mono);

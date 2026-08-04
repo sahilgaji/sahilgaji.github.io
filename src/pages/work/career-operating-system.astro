@@ -130,6 +130,17 @@ const decisions = [
       </p>
     </div>
 
+    <h2>What's next</h2>
+    <p class="prose-p">
+      The reject gates currently work off explicit rules — a regex for "C1"
+      German, a number for years required. The next version routes edge
+      cases (a "fluent German" ask that isn't literally "C1," a years range
+      that overlaps the cutoff) to a judgment call instead of a silent
+      miss. That's already caused two real errors this system has caught
+      and corrected on itself — which is either a bug list or a sign the
+      review loop is doing its job.
+    </p>
+
     <h2>Verify this</h2>
     <p class="verify">
       This describes a real, currently running system — not a demo built

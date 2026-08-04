@@ -1,0 +1,175 @@
+---
+import Base from "../../layouts/Base.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+import StatTile from "../../components/StatTile.astro";
+import Disclosure from "../../components/Disclosure.astro";
+---
+
+<Base
+  title="Getting 150+ people to actually use a new system · Sahil Gaji"
+  description="Configuring Jira for three cross-functional projects at Bosch was the easy part. Adoption was the project."
+>
+  <Header current="work" />
+  <main>
+    <p class="eyebrow">Robert Bosch GmbH · Mar–Aug 2024</p>
+    <h1>Getting 150+ people to actually use a new system.</h1>
+
+    <div class="metrics">
+      <StatTile value="150+" label="managers & team leads trained" />
+      <StatTile value="3" label="cross-functional projects standardized" />
+      <StatTile value="~ 15%" label="productivity improvement" definition="Measured after standardizing Jira workflows across the three projects." />
+      <StatTile value="~ 30%" label="faster document retrieval" definition="After migrating project documentation from Excel and internal Wiki to Confluence." />
+    </div>
+
+    <section class="prose">
+      <p>
+        Six months as an intern on Bosch's Project Management Digitalization
+        team, supporting global supply chain digitalization work across
+        international teams. The problem wasn't a lack of tools — it was too
+        many of them, used inconsistently: OPLs, roadmaps, and risk tracking
+        scattered across spreadsheets and whatever format each project lead
+        preferred.
+      </p>
+      <p>
+        Standardizing that onto Jira, for three cross-functional projects,
+        took a few weeks. That was the easy part.
+      </p>
+    </section>
+
+    <p class="inversion">Configuring the tool was the easy fifth of the work.</p>
+
+    <h2>What the other four-fifths looked like</h2>
+    <section class="prose">
+      <p>
+        Once Jira was configured, the actual work was getting it to stick:
+        training sessions, documentation people would come back to, and a
+        lot of one-on-one troubleshooting for managers who'd been running
+        things their own way for years. The Confluence migration was the
+        same problem from a different angle — moving documentation off
+        Excel and an internal Wiki only pays off once people trust the new
+        place enough to stop keeping their own copies. Once it stuck,
+        retrieval time dropped by roughly 30%.
+      </p>
+      <p>
+        Ticket handling was the one piece that ran more in the background:
+        an AI chatbot and Power Automate took over the repetitive triage
+        that used to eat someone's morning, and a Power BI dashboard put
+        ticket-resolution KPIs in front of the team without anyone
+        compiling a report by hand.
+      </p>
+    </section>
+
+    <Disclosure label="Why training mattered more than the tool">
+      <p>
+        Nobody adopts a new system because it's technically better than the
+        old one. They adopt it because someone showed them, specifically,
+        how it makes their week easier — and was still around to answer
+        questions three weeks later when they forgot how. That's most of
+        where six months actually went.
+      </p>
+    </Disclosure>
+
+    <Disclosure label="What I owned vs. what I supported">
+      <p>
+        <strong>Owned:</strong> the Jira workflow design for OPLs, roadmaps,
+        and risk tracking; the training materials and sessions; the
+        Confluence migration; the Power BI dashboard.
+        <strong>Supported:</strong> the broader digitalization strategy and
+        which tools got chosen in the first place — that direction came from
+        the team I was on, not from me as an intern six months in.
+      </p>
+    </Disclosure>
+
+    <h2>What I'd do differently</h2>
+    <div class="retro">
+      <p>
+        Looking back, I would have asked for feedback earlier and more
+        frequently from the people using the tools, rather than assuming the
+        first version was already intuitive. Building a good workflow is
+        only half the job; adoption depends on understanding how different
+        people actually work. That experience reinforced that digital
+        transformation is as much about people as it is about technology.
+      </p>
+    </div>
+
+    <h2>Verify this</h2>
+    <ul class="verify">
+      <li>This internship is listed on my CV, with the same dates and metrics.</li>
+      <li>A reference from this period is available on request, as part of a normal hiring process.</li>
+      <li>Screenshots of the Jira workflows, Confluence space, and dashboard aren't included here — they're Bosch's internal systems, not mine to publish.</li>
+    </ul>
+  </main>
+  <Footer lang="en" />
+</Base>
+
+<style>
+  main {
+    max-width: var(--measure-prose);
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-3);
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--color-accent);
+    margin: 0 0 var(--space-1);
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-size: clamp(1.7rem, 4.5vw, 2.3rem);
+    font-weight: 400;
+    text-wrap: balance;
+    margin: 0 0 var(--space-6);
+  }
+  h2 {
+    font-family: var(--font-serif);
+    font-size: 1.3rem;
+    font-weight: 400;
+    margin: var(--space-8) 0 var(--space-3);
+  }
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+    gap: var(--space-2);
+    margin-bottom: var(--space-8);
+  }
+  .prose p {
+    font-size: 1.02rem;
+    margin: 0 0 var(--space-3);
+    max-width: 42rem;
+  }
+  .inversion {
+    font-family: var(--font-serif);
+    font-size: 1.35rem;
+    font-style: italic;
+    color: var(--color-ink-muted);
+    border-left: 2px solid var(--color-accent);
+    padding-left: var(--space-3);
+    margin: var(--space-6) 0;
+    max-width: 38rem;
+  }
+  .retro {
+    border-left: 2px solid var(--color-line);
+    padding-left: var(--space-3);
+    font-style: italic;
+    color: var(--color-ink-muted);
+    max-width: 42rem;
+  }
+  .retro p {
+    margin: 0;
+  }
+  .verify {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--color-ink-muted);
+    max-width: 42rem;
+    padding-left: 1.2rem;
+    margin: 0;
+  }
+  .verify li {
+    margin-bottom: 0.35rem;
+  }
+</style>

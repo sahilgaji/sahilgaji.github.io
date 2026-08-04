@@ -1,5 +1,11 @@
 [
   {
+    "version": "0.11.0",
+    "date": "2026-08-05",
+    "title": "all three case studies, live",
+    "notes": "Bosch and Club House join the Career Operating System. Both drafts went through a real critique pass (ChatGPT, consulted deliberately) before shipping — some of it applied (an owned-vs-supported breakdown for Bosch, concrete nouns over vague ones, a tighter verify-this checklist), some of it rejected on the record (invented resistance anecdotes, a fabricated weekly timeline, and — most importantly — a rewrite of both retrospectives, which stayed exactly as originally said, verbatim). Work index now lists all three properly instead of a queue."
+  },
+  {
     "version": "0.10.0",
     "date": "2026-08-04",
     "title": "the flagship case study",
