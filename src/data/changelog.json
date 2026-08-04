@@ -1,5 +1,11 @@
 [
   {
+    "version": "0.9.0",
+    "date": "2026-08-04",
+    "title": "some actual personality",
+    "notes": "The site read like a spec sheet — fair complaint. Home's boxy credentials card is now a real paragraph about who this is, with a working example of the changelog conceit right on the page (expand 'What's changed recently'). About and How I work get a couple of honest asides where the numbers alone were carrying too much of the story. A 404 page exists now too."
+  },
+  {
     "version": "0.8.0",
     "date": "2026-08-04",
     "title": "the site has a background now",

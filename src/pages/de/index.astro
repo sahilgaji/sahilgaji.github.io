@@ -4,9 +4,11 @@ import Footer from "../../components/Footer.astro";
 import ThemeToggle from "../../components/ThemeToggle.astro";
 import LangToggle from "../../components/LangToggle.astro";
 import Nav from "../../components/Nav.astro";
+import Disclosure from "../../components/Disclosure.astro";
 import changelog from "../../data/changelog.json";
 
 const latest = changelog[0];
+const recent = changelog.slice(0, 3);
 ---
 
 <Base
@@ -24,9 +26,7 @@ const latest = changelog[0];
     </div>
 
     <h1>Sahil Gaji</h1>
-    <p class="tagline">
-      Ich baue Systeme, die auch ohne mich weiterlaufen.
-    </p>
+    <p class="tagline">Ich baue Systeme, die auch ohne mich weiterlaufen.</p>
 
     <p class="evidence">
       Bei Bosch habe ich Jira-Workflows und ein PMO-Reporting-System
@@ -37,31 +37,27 @@ const latest = changelog[0];
       braucht etwa zehn Minuten meiner Aufmerksamkeit pro Tag.
     </p>
 
+    <div class="human">
+      <img src="/favicon.svg" alt="" class="avatar" width="56" height="56" />
+      <p>
+        <strong>Kurz gesagt:</strong> Maschinenbauingenieur von Ausbildung
+        her, Projektmanagement- und Digital-Transformation-Mensch aus
+        Überzeugung. 2022 bin ich für einen Master nach Deutschland gezogen,
+        und aktuell arbeite ich Teilzeit in der Qualitätskontrolle in einem
+        Fulfilment-Center in Hamburg, um über die Runden zu kommen, während
+        ich eine Junior-Stelle in Projektmanagement, PMO, Prozessverbesserung
+        oder Digitaler Transformation suche — genau das, wofür ich auch
+        legal arbeitsberechtigt und verfügbar bin, nicht zufällig. Deutsch
+        ist B1 und wird besser; Englisch trägt den Rest; Hindi und Marathi
+        kamen zuerst.
+        <a href="/about/">Die lange Version gibt es hier.</a>
+      </p>
+    </div>
+
     <p class="note">
       Deutsche Übersetzung: KI-unterstützt erstellt, inhaltlich von mir
       geprüft.
     </p>
-
-    <div class="status-card">
-      <img src="/favicon.svg" alt="" class="avatar" width="56" height="56" />
-      <dl>
-        <div>
-          <dt>Aktuell</dt>
-          <dd>
-            Offen für Junior-Positionen in Projektmanagement, PMO,
-            Prozessverbesserung und Digitaler Transformation in Deutschland.
-          </dd>
-        </div>
-        <div>
-          <dt>Arbeitserlaubnis</dt>
-          <dd>Uneingeschränkt arbeitsberechtigt in Deutschland.</dd>
-        </div>
-        <div>
-          <dt>Sprachen</dt>
-          <dd>Englisch (verhandlungssicher) · Deutsch (B1, im Kurs) · Hindi, Marathi (Muttersprache)</dd>
-        </div>
-      </dl>
-    </div>
 
     <p class="proof">
       M.Sc. Digital Transformation Management, SRH Berlin ("sehr gut") ·
@@ -74,12 +70,19 @@ const latest = changelog[0];
       <a href="mailto:sahil.gaji@outlook.com">sahil.gaji@outlook.com</a>
     </p>
 
-    <div class="log" aria-label="Website-Status">
-      <p class="entry">
-        <span class="version">v{latest.version}</span> — {latest.title} ·
-        <a href="/changelog/">changelog</a>
-      </p>
-    </div>
+    <Disclosure label="Was sich zuletzt geändert hat">
+      <ul class="recent">
+        {
+          recent.map((entry) => (
+            <li>
+              <span class="v">v{entry.version}</span> — {entry.title}
+              <span class="d">{entry.notes}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="see-all"><a href="/changelog/">Vollständiges Changelog →</a></p>
+    </Disclosure>
   </main>
 
   <Footer lang="de" />
@@ -121,47 +124,35 @@ const latest = changelog[0];
   .evidence {
     font-size: 1.05rem;
     max-width: 42rem;
-    margin: 0 0 var(--space-2);
+    margin: 0 0 var(--space-6);
+  }
+
+  .human {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-3);
+    align-items: start;
+    margin-bottom: var(--space-2);
+  }
+  .avatar {
+    border-radius: 50%;
+    border: 1px solid var(--color-line);
+    flex-shrink: 0;
+    margin-top: 0.2rem;
+  }
+  .human p {
+    margin: 0;
+    font-size: 1rem;
+    max-width: 42rem;
+  }
+  .human a {
+    white-space: nowrap;
   }
   .note {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--color-ink-muted);
     margin: 0 0 var(--space-6);
-  }
-
-  .status-card {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: var(--space-3);
-    align-items: start;
-    border: 1px solid var(--color-line);
-    border-radius: 6px;
-    padding: var(--space-3);
-    margin-bottom: var(--space-6);
-  }
-  .avatar {
-    border-radius: 50%;
-    border: 1px solid var(--color-line);
-    flex-shrink: 0;
-  }
-  .status-card dl {
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
-  }
-  .status-card dt {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--color-accent);
-    margin: 0 0 0.2rem;
-  }
-  .status-card dd {
-    margin: 0;
-    font-size: 0.95rem;
   }
 
   .proof {
@@ -172,20 +163,33 @@ const latest = changelog[0];
   }
   .contact {
     font-size: 0.95rem;
-    margin: 0 0 var(--space-8);
+    margin: 0 0 var(--space-6);
   }
 
-  .log {
-    border-left: 2px solid var(--color-line);
-    padding-left: var(--space-3);
+  .recent {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-2);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
   }
-  .entry {
+  .recent li {
     font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--color-ink-muted);
-    margin: 0;
+    font-size: 0.82rem;
   }
-  .version {
+  .recent .v {
     color: var(--color-accent);
+  }
+  .recent .d {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-ink-muted);
+    margin-top: 0.15rem;
+  }
+  .see-all {
+    margin: 0;
+    font-size: 0.82rem;
   }
 </style>

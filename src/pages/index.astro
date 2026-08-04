@@ -4,9 +4,11 @@ import Footer from "../components/Footer.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
 import LangToggle from "../components/LangToggle.astro";
 import Nav from "../components/Nav.astro";
+import Disclosure from "../components/Disclosure.astro";
 import changelog from "../data/changelog.json";
 
 const latest = changelog[0];
+const recent = changelog.slice(0, 3);
 ---
 
 <Base title="Sahil Gaji">
@@ -30,25 +32,20 @@ const latest = changelog[0];
       takes about ten minutes of my attention a day.
     </p>
 
-    <div class="status-card">
+    <div class="human">
       <img src="/favicon.svg" alt="" class="avatar" width="56" height="56" />
-      <dl>
-        <div>
-          <dt>Currently</dt>
-          <dd>
-            Open to junior Project Management, PMO, Process Improvement, and
-            Digital Transformation opportunities in Germany.
-          </dd>
-        </div>
-        <div>
-          <dt>Work authorization</dt>
-          <dd>Legally authorized to work in Germany.</dd>
-        </div>
-        <div>
-          <dt>Languages</dt>
-          <dd>English (business fluent) · German (B1, in classes) · Hindi, Marathi (native)</dd>
-        </div>
-      </dl>
+      <p>
+        <strong>The short version:</strong> mechanical engineer by training,
+        project-management-and-digital-transformation person by choice. I
+        moved to Germany in 2022 for a Master's degree, and these days I do
+        part-time quality control at a Hamburg fulfilment center to stay
+        afloat while I look for a junior PM, PMO, process, or
+        digital-transformation role — which is also, not coincidentally,
+        exactly what I'm legally authorized and available to start. German
+        is B1 and improving; English carries the rest; Hindi and Marathi
+        came first.
+        <a href="/about/">The long version is here.</a>
+      </p>
     </div>
 
     <p class="proof">
@@ -62,12 +59,19 @@ const latest = changelog[0];
       <a href="mailto:sahil.gaji@outlook.com">sahil.gaji@outlook.com</a>
     </p>
 
-    <div class="log" aria-label="Site status">
-      <p class="entry">
-        <span class="version">v{latest.version}</span> — {latest.title} ·
-        <a href="/changelog/">changelog</a>
-      </p>
-    </div>
+    <Disclosure label="What's changed recently">
+      <ul class="recent">
+        {
+          recent.map((entry) => (
+            <li>
+              <span class="v">v{entry.version}</span> — {entry.title}
+              <span class="d">{entry.notes}</span>
+            </li>
+          ))
+        }
+      </ul>
+      <p class="see-all"><a href="/changelog/">Full changelog →</a></p>
+    </Disclosure>
   </main>
 
   <Footer lang="en" />
@@ -109,41 +113,29 @@ const latest = changelog[0];
   .evidence {
     font-size: 1.05rem;
     max-width: 42rem;
-    margin: 0 0 var(--space-8);
+    margin: 0 0 var(--space-6);
   }
 
-  .status-card {
+  .human {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: var(--space-3);
     align-items: start;
-    border: 1px solid var(--color-line);
-    border-radius: 6px;
-    padding: var(--space-3);
     margin-bottom: var(--space-6);
   }
   .avatar {
     border-radius: 50%;
     border: 1px solid var(--color-line);
     flex-shrink: 0;
+    margin-top: 0.2rem;
   }
-  .status-card dl {
+  .human p {
     margin: 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-2);
+    font-size: 1rem;
+    max-width: 42rem;
   }
-  .status-card dt {
-    font-family: var(--font-mono);
-    font-size: 0.72rem;
-    text-transform: uppercase;
-    letter-spacing: 0.04em;
-    color: var(--color-accent);
-    margin: 0 0 0.2rem;
-  }
-  .status-card dd {
-    margin: 0;
-    font-size: 0.95rem;
+  .human a {
+    white-space: nowrap;
   }
 
   .proof {
@@ -154,20 +146,33 @@ const latest = changelog[0];
   }
   .contact {
     font-size: 0.95rem;
-    margin: 0 0 var(--space-8);
+    margin: 0 0 var(--space-6);
   }
 
-  .log {
-    border-left: 2px solid var(--color-line);
-    padding-left: var(--space-3);
+  .recent {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--space-2);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
   }
-  .entry {
+  .recent li {
     font-family: var(--font-mono);
-    font-size: 0.8rem;
-    color: var(--color-ink-muted);
-    margin: 0;
+    font-size: 0.82rem;
   }
-  .version {
+  .recent .v {
     color: var(--color-accent);
+  }
+  .recent .d {
+    display: block;
+    font-family: var(--font-sans);
+    font-size: 0.85rem;
+    color: var(--color-ink-muted);
+    margin-top: 0.15rem;
+  }
+  .see-all {
+    margin: 0;
+    font-size: 0.82rem;
   }
 </style>
