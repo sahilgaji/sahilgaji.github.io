@@ -1,13 +1,20 @@
 ---
 import changelog from "../data/changelog.json";
 
+interface Props {
+  lang?: "en" | "de";
+}
+
+const { lang = "en" } = Astro.props;
 const version = changelog[0].version;
+const siteWord = lang === "de" ? "Website" : "site";
+const changelogLabel = lang === "de" ? "Changelog" : "changelog";
 ---
 
 <footer>
   <p>
-    © 2026 Sahil Gaji · site v{version} ·
-    <a href="/changelog/">changelog</a>
+    © 2026 Sahil Gaji · {siteWord} v{version} ·
+    <a href="/changelog/">{changelogLabel}</a>
   </p>
   <p>
     <a href="https://www.linkedin.com/in/sahil-gaji/">LinkedIn</a> ·

@@ -1,38 +1,47 @@
 ---
-import Base from "../layouts/Base.astro";
-import Footer from "../components/Footer.astro";
-import ThemeToggle from "../components/ThemeToggle.astro";
-import LangToggle from "../components/LangToggle.astro";
-import changelog from "../data/changelog.json";
+import Base from "../../layouts/Base.astro";
+import Footer from "../../components/Footer.astro";
+import ThemeToggle from "../../components/ThemeToggle.astro";
+import LangToggle from "../../components/LangToggle.astro";
+import changelog from "../../data/changelog.json";
 
 const latest = changelog[0];
 ---
 
-<Base title="Sahil Gaji">
+<Base
+  title="Sahil Gaji"
+  description="Sahil Gaji — Projektmanagement & Digitale Transformation"
+  lang="de"
+>
   <main>
     <div class="topbar">
-      <LangToggle lang="en" enHref="/" deHref="/de/" />
+      <LangToggle lang="de" enHref="/" deHref="/de/" />
       <ThemeToggle />
     </div>
     <h1>Sahil Gaji</h1>
-    <p class="role">Project Management · Digital Transformation · Germany</p>
+    <p class="role">Projektmanagement · Digitale Transformation · Deutschland</p>
 
-    <div class="log" aria-label="Site status">
+    <div class="log" aria-label="Website-Status">
       <p class="entry">
         <span class="version">v{latest.version}</span> — {latest.title}
       </p>
       <p>
-        This site is being built in public. It launches when it meets its
-        definition of done — not a date.
+        Diese Website entsteht öffentlich. Sie geht live, sobald sie ihre
+        eigenen Kriterien erfüllt — nicht an einem festen Datum.
       </p>
     </div>
+
+    <p class="note">
+      Deutsche Übersetzung: KI-unterstützt erstellt, inhaltlich von mir
+      geprüft.
+    </p>
 
     <p class="links">
       <a href="https://www.linkedin.com/in/sahil-gaji/">LinkedIn</a>
     </p>
   </main>
 
-  <Footer lang="en" />
+  <Footer lang="de" />
 </Base>
 
 <style>
@@ -71,6 +80,12 @@ const latest = changelog[0];
   }
   .version {
     color: var(--color-accent);
+  }
+  .note {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--color-ink-muted);
+    margin-top: var(--space-3);
   }
   .links {
     margin-top: var(--space-8);

@@ -1,5 +1,11 @@
 [
   {
+    "version": "0.6.0",
+    "date": "2026-07-15",
+    "title": "the site goes bilingual",
+    "notes": "German routing at /de/, starting with Home — English-first, German follows page by page as each page is written (ADR-004). AI-drafted, human-reviewed; each German page says so, plainly, on the page."
+  },
+  {
     "version": "0.5.0",
     "date": "2026-07-15",
     "title": "dark and light, on request",

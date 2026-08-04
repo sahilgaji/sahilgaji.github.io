@@ -1,0 +1,44 @@
+---
+// EN/DE switch. Deliberately explicit rather than generic path-rewriting:
+// only pages that actually HAVE both versions should show this toggle, so a
+// visitor never lands on a dead link. As more pages gain a German version,
+// pass this component their real en/de pair — don't generalize until there's
+// more than one pair to justify it (see LESSONS-LEARNED for the same call
+// made on ThemeToggle's simplicity).
+interface Props {
+  lang: "en" | "de";
+  enHref: string;
+  deHref: string;
+}
+
+const { lang, enHref, deHref } = Astro.props;
+---
+
+<nav class="lang-toggle" aria-label="Language">
+  <a href={enHref} aria-current={lang === "en" ? "page" : undefined}>EN</a>
+  <span aria-hidden="true">/</span>
+  <a href={deHref} aria-current={lang === "de" ? "page" : undefined}>DE</a>
+</nav>
+
+<style>
+  .lang-toggle {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--color-ink-muted);
+  }
+  .lang-toggle a {
+    color: var(--color-ink-muted);
+    text-decoration: none;
+  }
+  .lang-toggle a[aria-current="page"] {
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+  .lang-toggle a:not([aria-current]):hover {
+    color: var(--color-ink);
+    text-decoration: underline;
+  }
+</style>
