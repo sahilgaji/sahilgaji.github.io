@@ -1,0 +1,70 @@
+---
+import Base from "../../layouts/Base.astro";
+import Header from "../../components/Header.astro";
+import Footer from "../../components/Footer.astro";
+---
+
+<Base title="Work · Sahil Gaji" description="Three case studies, in progress.">
+  <Header current="work" />
+  <main>
+    <h1>Work</h1>
+    <p class="intro">
+      Three case studies are coming here:
+    </p>
+    <ul class="queue">
+      <li>
+        <strong>The Career Operating System</strong> — this job search, run
+        like a transformation project. The architecture diagram is being
+        drawn by hand right now.
+      </li>
+      <li>
+        <strong>Bosch</strong> — getting 150+ people to actually adopt a new
+        tool, which turned out to matter more than configuring it.
+      </li>
+      <li>
+        <strong>Club House</strong> — the honest story of a food business
+        that kept running after I left it.
+      </li>
+    </ul>
+    <p class="note">
+      Each one ships as its own increment, not all at once. Follow the
+      <a href="/changelog/">changelog</a> to see them land — or read
+      <a href="/about/">About</a> for the short version of each role in the
+      meantime.
+    </p>
+  </main>
+  <Footer lang="en" />
+</Base>
+
+<style>
+  main {
+    max-width: var(--measure-prose);
+    margin: 0 auto;
+    padding: var(--space-8) var(--space-3);
+  }
+  h1 {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    font-weight: 400;
+    margin: 0 0 var(--space-3);
+  }
+  .intro {
+    font-size: 1.05rem;
+    margin: 0 0 var(--space-3);
+  }
+  .queue {
+    padding-left: 1.2rem;
+    margin: 0 0 var(--space-6);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .queue li {
+    font-size: 0.98rem;
+  }
+  .note {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    color: var(--color-ink-muted);
+  }
+</style>

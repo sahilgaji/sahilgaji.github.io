@@ -1,5 +1,11 @@
 [
   {
+    "version": "0.8.0",
+    "date": "2026-08-04",
+    "title": "the site has a background now",
+    "notes": "Real navigation across the whole site. About: the full timeline from KEIHIN through Bosch to the Career Operating System, languages, the shelf, and how to reach me. How I work: five operating principles, each with its story and evidence. Work and Notes are honest queues, not dead links — the case studies and articles land as their own increments."
+  },
+  {
     "version": "0.7.0",
     "date": "2026-08-04",
     "title": "the first real Home page",

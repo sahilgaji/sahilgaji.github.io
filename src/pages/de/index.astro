@@ -3,6 +3,7 @@ import Base from "../../layouts/Base.astro";
 import Footer from "../../components/Footer.astro";
 import ThemeToggle from "../../components/ThemeToggle.astro";
 import LangToggle from "../../components/LangToggle.astro";
+import Nav from "../../components/Nav.astro";
 import changelog from "../../data/changelog.json";
 
 const latest = changelog[0];
@@ -15,8 +16,11 @@ const latest = changelog[0];
 >
   <main>
     <div class="topbar">
-      <LangToggle lang="de" enHref="/" deHref="/de/" />
-      <ThemeToggle />
+      <Nav />
+      <div class="topbar-right">
+        <LangToggle lang="de" enHref="/" deHref="/de/" />
+        <ThemeToggle />
+      </div>
     </div>
 
     <h1>Sahil Gaji</h1>
@@ -90,9 +94,15 @@ const latest = changelog[0];
   .topbar {
     display: flex;
     align-items: center;
-    justify-content: flex-end;
+    justify-content: space-between;
+    flex-wrap: wrap;
     gap: var(--space-3);
     margin-bottom: var(--space-6);
+  }
+  .topbar-right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
   }
   h1 {
     font-family: var(--font-serif);

@@ -1,10 +1,19 @@
 ---
 import ThemeToggle from "./ThemeToggle.astro";
+import Nav from "./Nav.astro";
+
+interface Props {
+  current?: "work" | "how-i-work" | "notes" | "about";
+}
+const { current } = Astro.props;
 ---
 
 <header>
-  <a href="/">Sahil Gaji</a>
-  <ThemeToggle />
+  <a class="wordmark" href="/">Sahil Gaji</a>
+  <div class="right">
+    <Nav current={current} />
+    <ThemeToggle />
+  </div>
 </header>
 
 <style>
@@ -15,14 +24,21 @@ import ThemeToggle from "./ThemeToggle.astro";
     display: flex;
     align-items: center;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: var(--space-2);
   }
-  a {
+  .right {
+    display: flex;
+    align-items: center;
+    gap: var(--space-4);
+  }
+  .wordmark {
     font-family: var(--font-serif);
     font-size: 1.15rem;
     color: var(--color-ink);
     text-decoration: none;
   }
-  a:hover {
+  .wordmark:hover {
     text-decoration: underline;
     text-decoration-color: var(--color-accent);
   }

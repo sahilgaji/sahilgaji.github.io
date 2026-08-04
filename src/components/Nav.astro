@@ -1,0 +1,32 @@
+---
+interface Props {
+  current?: "work" | "how-i-work" | "notes" | "about";
+}
+const { current } = Astro.props;
+---
+
+<nav class="site-nav" aria-label="Section">
+  <a href="/work/" aria-current={current === "work" ? "page" : undefined}>Work</a>
+  <a href="/how-i-work/" aria-current={current === "how-i-work" ? "page" : undefined}>How I work</a>
+  <a href="/notes/" aria-current={current === "notes" ? "page" : undefined}>Notes</a>
+  <a href="/about/" aria-current={current === "about" ? "page" : undefined}>About</a>
+</nav>
+
+<style>
+  .site-nav {
+    display: flex;
+    gap: var(--space-3);
+    font-size: 0.85rem;
+  }
+  .site-nav a {
+    color: var(--color-ink-muted);
+    text-decoration: none;
+  }
+  .site-nav a[aria-current="page"] {
+    color: var(--color-accent);
+  }
+  .site-nav a:not([aria-current]):hover {
+    color: var(--color-ink);
+    text-decoration: underline;
+  }
+</style>
