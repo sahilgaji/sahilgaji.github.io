@@ -1,5 +1,10 @@
+---
+import ThemeToggle from "./ThemeToggle.astro";
+---
+
 <header>
   <a href="/">Sahil Gaji</a>
+  <ThemeToggle />
 </header>
 
 <style>
@@ -7,6 +12,9 @@
     max-width: var(--measure-prose);
     margin: 0 auto;
     padding: var(--space-3) var(--space-3) 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   a {
     font-family: var(--font-serif);

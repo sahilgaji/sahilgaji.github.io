@@ -1,5 +1,11 @@
 [
   {
+    "version": "0.5.0",
+    "date": "2026-07-15",
+    "title": "dark and light, on request",
+    "notes": "Manual theme toggle in the header — defaults to the visitor's OS preference, overridable and persisted, no flash on load. No new dependency: pure CSS attribute overrides plus a script under 1KB."
+  },
+  {
     "version": "0.4.0",
     "date": "2026-07-15",
     "title": "components & compliance",

@@ -46,3 +46,23 @@
     --color-accent: #f59e0b; /* amber brightened for dark-ground contrast */
   }
 }
+
+/*
+  Manual theme override (ThemeToggle.astro). An attribute selector on :root
+  is more specific than the bare :root above, so this wins regardless of
+  source order or OS preference once the visitor has chosen explicitly.
+*/
+:root[data-theme="light"] {
+  --color-paper: #faf8f5;
+  --color-ink: #211e1a;
+  --color-ink-muted: #6f6862;
+  --color-line: #e8e2d9;
+  --color-accent: #b45309;
+}
+:root[data-theme="dark"] {
+  --color-paper: #17140f;
+  --color-ink: #e9e4dc;
+  --color-ink-muted: #9b938a;
+  --color-line: #2e2921;
+  --color-accent: #f59e0b;
+}
