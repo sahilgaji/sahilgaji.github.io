@@ -1,5 +1,11 @@
 [
   {
+    "version": "0.7.0",
+    "date": "2026-08-04",
+    "title": "the first real Home page",
+    "notes": "Replaced the holding page with real content: the evidence-earning tagline, the Currently/work-authorization/languages block, and a temporary monogram avatar standing in until a clean portrait photo is ready. Home only for now — the case study, How I work, and About still need assets (the diagram, colleague quotes) before they're honest to build."
+  },
+  {
     "version": "0.6.0",
     "date": "2026-07-15",
     "title": "the site goes bilingual",

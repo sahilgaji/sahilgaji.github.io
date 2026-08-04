@@ -18,27 +18,64 @@ const latest = changelog[0];
       <LangToggle lang="de" enHref="/" deHref="/de/" />
       <ThemeToggle />
     </div>
-    <h1>Sahil Gaji</h1>
-    <p class="role">Projektmanagement · Digitale Transformation · Deutschland</p>
 
-    <div class="log" aria-label="Website-Status">
-      <p class="entry">
-        <span class="version">v{latest.version}</span> — {latest.title}
-      </p>
-      <p>
-        Diese Website entsteht öffentlich. Sie geht live, sobald sie ihre
-        eigenen Kriterien erfüllt — nicht an einem festen Datum.
-      </p>
-    </div>
+    <h1>Sahil Gaji</h1>
+    <p class="tagline">
+      Ich baue Systeme, die auch ohne mich weiterlaufen.
+    </p>
+
+    <p class="evidence">
+      Bei Bosch habe ich Jira-Workflows und ein PMO-Reporting-System
+      aufgebaut und 150+ Führungskräfte und Teamleiter geschult — die
+      Systeme wurden auch nach meinem Praktikum weiter genutzt. Ich habe ein
+      Food-Startup mitgegründet, das nach meinem Ausstieg weiterlief. Meine
+      eigene Jobsuche läuft über ein System, das ich selbst gebaut habe — es
+      braucht etwa zehn Minuten meiner Aufmerksamkeit pro Tag.
+    </p>
 
     <p class="note">
       Deutsche Übersetzung: KI-unterstützt erstellt, inhaltlich von mir
       geprüft.
     </p>
 
-    <p class="links">
-      <a href="https://www.linkedin.com/in/sahil-gaji/">LinkedIn</a>
+    <div class="status-card">
+      <img src="/favicon.svg" alt="" class="avatar" width="56" height="56" />
+      <dl>
+        <div>
+          <dt>Aktuell</dt>
+          <dd>
+            Offen für Junior-Positionen in Projektmanagement, PMO,
+            Prozessverbesserung und Digitaler Transformation in Deutschland.
+          </dd>
+        </div>
+        <div>
+          <dt>Arbeitserlaubnis</dt>
+          <dd>Uneingeschränkt arbeitsberechtigt in Deutschland.</dd>
+        </div>
+        <div>
+          <dt>Sprachen</dt>
+          <dd>Englisch (verhandlungssicher) · Deutsch (B1, im Kurs) · Hindi, Marathi (Muttersprache)</dd>
+        </div>
+      </dl>
+    </div>
+
+    <p class="proof">
+      M.Sc. Digital Transformation Management, SRH Berlin ("sehr gut") ·
+      Robert Bosch GmbH · das Career Operating System
     </p>
+
+    <p class="contact">
+      <a href="https://www.linkedin.com/in/sahil-gaji/">LinkedIn</a>
+      ·
+      <a href="mailto:sahil.gaji@outlook.com">sahil.gaji@outlook.com</a>
+    </p>
+
+    <div class="log" aria-label="Website-Status">
+      <p class="entry">
+        <span class="version">v{latest.version}</span> — {latest.title} ·
+        <a href="/changelog/">changelog</a>
+      </p>
+    </div>
   </main>
 
   <Footer lang="de" />
@@ -59,35 +96,86 @@ const latest = changelog[0];
   }
   h1 {
     font-family: var(--font-serif);
-    font-size: 2.5rem;
+    font-size: 1.4rem;
     font-weight: 400;
-    margin: 0;
-  }
-  .role {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
     color: var(--color-ink-muted);
-    margin: var(--space-1) 0 var(--space-8);
+    margin: 0 0 var(--space-1);
   }
-  .log {
-    border-left: 2px solid var(--color-line);
-    padding-left: var(--space-3);
-    font-size: 0.95rem;
+  .tagline {
+    font-family: var(--font-serif);
+    font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+    line-height: 1.25;
+    text-wrap: balance;
+    margin: 0 0 var(--space-4);
   }
-  .entry {
-    font-family: var(--font-mono);
-    font-size: 0.85rem;
-  }
-  .version {
-    color: var(--color-accent);
+  .evidence {
+    font-size: 1.05rem;
+    max-width: 42rem;
+    margin: 0 0 var(--space-2);
   }
   .note {
     font-family: var(--font-mono);
     font-size: 0.75rem;
     color: var(--color-ink-muted);
-    margin-top: var(--space-3);
+    margin: 0 0 var(--space-6);
   }
-  .links {
-    margin-top: var(--space-8);
+
+  .status-card {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: var(--space-3);
+    align-items: start;
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    padding: var(--space-3);
+    margin-bottom: var(--space-6);
+  }
+  .avatar {
+    border-radius: 50%;
+    border: 1px solid var(--color-line);
+    flex-shrink: 0;
+  }
+  .status-card dl {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+  }
+  .status-card dt {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--color-accent);
+    margin: 0 0 0.2rem;
+  }
+  .status-card dd {
+    margin: 0;
+    font-size: 0.95rem;
+  }
+
+  .proof {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    color: var(--color-ink-muted);
+    margin: 0 0 var(--space-4);
+  }
+  .contact {
+    font-size: 0.95rem;
+    margin: 0 0 var(--space-8);
+  }
+
+  .log {
+    border-left: 2px solid var(--color-line);
+    padding-left: var(--space-3);
+  }
+  .entry {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-ink-muted);
+    margin: 0;
+  }
+  .version {
+    color: var(--color-accent);
   }
 </style>
