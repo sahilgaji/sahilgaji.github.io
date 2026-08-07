@@ -5,6 +5,7 @@ import ThemeToggle from "../../components/ThemeToggle.astro";
 import LangToggle from "../../components/LangToggle.astro";
 import Nav from "../../components/Nav.astro";
 import Disclosure from "../../components/Disclosure.astro";
+import WipBadge from "../../components/WipBadge.astro";
 import changelog from "../../data/changelog.json";
 
 const latest = changelog[0];
@@ -24,6 +25,8 @@ const recent = changelog.slice(0, 3);
         <ThemeToggle />
       </div>
     </div>
+
+    <WipBadge label="Im Aufbau" linkLabel="Was bisher fertig ist" />
 
     <h1>Sahil Gaji</h1>
     <p class="tagline">Ich baue Systeme, die auch ohne mich weiterlaufen.</p>
