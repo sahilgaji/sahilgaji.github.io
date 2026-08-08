@@ -17,6 +17,7 @@ const recent = changelog.slice(0, 3);
     <div class="topbar">
       <Nav />
       <div class="topbar-right">
+        <a class="cv-link" href="/cv/">CV</a>
         <LangToggle lang="en" enHref="/" deHref="/de/" />
         <ThemeToggle />
       </div>
@@ -98,6 +99,19 @@ const recent = changelog.slice(0, 3);
     display: flex;
     align-items: center;
     gap: var(--space-3);
+  }
+  .cv-link {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-ink-muted);
+    text-decoration: none;
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    padding: 0.25rem 0.6rem;
+  }
+  .cv-link:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
   }
   h1 {
     font-family: var(--font-serif);

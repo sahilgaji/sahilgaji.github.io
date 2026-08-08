@@ -12,6 +12,7 @@ const { current } = Astro.props;
   <a class="wordmark" href="/">Sahil Gaji</a>
   <div class="right">
     <Nav current={current} />
+    <a class="cv-link" href="/cv/">CV</a>
     <ThemeToggle />
   </div>
 </header>
@@ -41,5 +42,18 @@ const { current } = Astro.props;
   .wordmark:hover {
     text-decoration: underline;
     text-decoration-color: var(--color-accent);
+  }
+  .cv-link {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    color: var(--color-ink-muted);
+    text-decoration: none;
+    border: 1px solid var(--color-line);
+    border-radius: 4px;
+    padding: 0.25rem 0.6rem;
+  }
+  .cv-link:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
   }
 </style>
