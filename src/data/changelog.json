@@ -1,5 +1,11 @@
 [
   {
+    "version": "0.14.0",
+    "date": "2026-08-05",
+    "title": "the site gets some motion",
+    "notes": "A scroll-progress bar and a fade-rise reveal on scroll, both sitewide — the reveal was actually specced back when the interaction system was designed and never got built until now. Richer hover states on the Work cards, the About timeline, and How I work's principles (a sliding accent bar, not just a border-color swap). Home's tagline set larger and tighter. All of it respects prefers-reduced-motion and stays inside the CI performance budget."
+  },
+  {
     "version": "0.13.0",
     "date": "2026-08-05",
     "title": "a real CV, finally",

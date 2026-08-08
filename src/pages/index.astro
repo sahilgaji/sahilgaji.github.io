@@ -28,7 +28,7 @@ const recent = changelog.slice(0, 3);
     <h1>Sahil Gaji</h1>
     <p class="tagline">I build systems that keep working when I leave the room.</p>
 
-    <p class="evidence">
+    <p class="evidence" data-reveal>
       At Bosch, I set up Jira workflows and a PMO reporting system, trained
       150+ managers and team leads — the systems stayed in use after my
       internship ended. I co-founded a food business that kept running after
@@ -36,7 +36,7 @@ const recent = changelog.slice(0, 3);
       takes about ten minutes of my attention a day.
     </p>
 
-    <div class="human">
+    <div class="human" data-reveal>
       <img src="/favicon.svg" alt="" class="avatar" width="56" height="56" />
       <p>
         <strong>The short version:</strong> mechanical engineer by training,
@@ -52,7 +52,7 @@ const recent = changelog.slice(0, 3);
       </p>
     </div>
 
-    <p class="proof">
+    <p class="proof" data-reveal>
       M.Sc. Digital Transformation Management, SRH Berlin ("very good") ·
       Robert Bosch GmbH · the Career Operating System
     </p>
@@ -122,10 +122,11 @@ const recent = changelog.slice(0, 3);
   }
   .tagline {
     font-family: var(--font-serif);
-    font-size: clamp(1.9rem, 4.5vw, 2.6rem);
-    line-height: 1.25;
+    font-size: clamp(2.1rem, 5.5vw, 3.4rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
     text-wrap: balance;
-    margin: 0 0 var(--space-4);
+    margin: 0 0 var(--space-5);
   }
   .evidence {
     font-size: 1.05rem;

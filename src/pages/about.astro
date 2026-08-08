@@ -112,7 +112,7 @@ const shelf = [
       <ol class="timeline">
         {
           timeline.map((item) => (
-            <li>
+            <li data-reveal>
               <p class="dates">{item.dates}</p>
               <p class="role-title">{item.title}</p>
               {item.org && <p class="org">{item.org}</p>}
@@ -211,9 +211,19 @@ const shelf = [
     border-left: 2px solid var(--color-line);
     padding-left: var(--space-3);
     padding-bottom: var(--space-6);
+    transition: border-color 0.15s ease-out, padding-left 0.15s ease-out;
   }
   .timeline li:last-child {
     padding-bottom: 0;
+  }
+  .timeline li:hover {
+    border-left-color: var(--color-accent);
+    padding-left: calc(var(--space-3) + 4px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .timeline li {
+      transition: none;
+    }
   }
   .dates {
     font-family: var(--font-mono);

@@ -32,7 +32,7 @@ const recent = changelog.slice(0, 3);
     <h1>Sahil Gaji</h1>
     <p class="tagline">Ich baue Systeme, die auch ohne mich weiterlaufen.</p>
 
-    <p class="evidence">
+    <p class="evidence" data-reveal>
       Bei Bosch habe ich Jira-Workflows und ein PMO-Reporting-System
       aufgebaut und 150+ Führungskräfte und Teamleiter geschult — die
       Systeme wurden auch nach meinem Praktikum weiter genutzt. Ich habe ein
@@ -41,7 +41,7 @@ const recent = changelog.slice(0, 3);
       braucht etwa zehn Minuten meiner Aufmerksamkeit pro Tag.
     </p>
 
-    <div class="human">
+    <div class="human" data-reveal>
       <img src="/favicon.svg" alt="" class="avatar" width="56" height="56" />
       <p>
         <strong>Kurz gesagt:</strong> Maschinenbauingenieur von Ausbildung
@@ -63,7 +63,7 @@ const recent = changelog.slice(0, 3);
       geprüft.
     </p>
 
-    <p class="proof">
+    <p class="proof" data-reveal>
       M.Sc. Digital Transformation Management, SRH Berlin ("sehr gut") ·
       Robert Bosch GmbH · das Career Operating System
     </p>
@@ -133,10 +133,11 @@ const recent = changelog.slice(0, 3);
   }
   .tagline {
     font-family: var(--font-serif);
-    font-size: clamp(1.9rem, 4.5vw, 2.6rem);
-    line-height: 1.25;
+    font-size: clamp(2.1rem, 5.5vw, 3.4rem);
+    line-height: 1.15;
+    letter-spacing: -0.01em;
     text-wrap: balance;
-    margin: 0 0 var(--space-4);
+    margin: 0 0 var(--space-5);
   }
   .evidence {
     font-size: 1.05rem;

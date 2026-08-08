@@ -51,7 +51,7 @@ const mindChanges = [
     <ol class="principles">
       {
         principles.map((p) => (
-          <li>
+          <li data-reveal>
             <h2>{p.title}</h2>
             {p.quote && <blockquote>{p.quote}</blockquote>}
             <p>{p.body}</p>
@@ -105,9 +105,19 @@ const mindChanges = [
     padding-left: var(--space-3);
     padding-bottom: var(--space-6);
     position: relative;
+    transition: border-color 0.15s ease-out, padding-left 0.15s ease-out;
   }
   .principles li:last-child {
     padding-bottom: 0;
+  }
+  .principles li:hover {
+    border-left-color: var(--color-accent);
+    padding-left: calc(var(--space-3) + 4px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .principles li {
+      transition: none;
+    }
   }
   .principles li::before {
     content: counter(principle);
