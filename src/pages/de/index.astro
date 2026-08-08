@@ -4,12 +4,43 @@ import Footer from "../../components/Footer.astro";
 import ThemeToggle from "../../components/ThemeToggle.astro";
 import LangToggle from "../../components/LangToggle.astro";
 import Nav from "../../components/Nav.astro";
-import Disclosure from "../../components/Disclosure.astro";
 import WipBadge from "../../components/WipBadge.astro";
 import changelog from "../../data/changelog.json";
 
 const latest = changelog[0];
-const recent = changelog.slice(0, 3);
+
+const modules = [
+  {
+    num: "01",
+    href: "/work/",
+    title: "Work",
+    body: "Drei Fallstudien — ein selbst gebautes Automatisierungssystem, ein Bosch-Praktikum, ein Startup, das seinen Gründer überdauert hat.",
+  },
+  {
+    num: "02",
+    href: "/how-i-work/",
+    title: "How I work",
+    body: "Fünf Dinge, auf die ich immer wieder zurückkomme — jeweils mit Beleg.",
+  },
+  {
+    num: "03",
+    href: "/about/",
+    title: "About",
+    body: "Sechs Stationen, zwei Abschlüsse, ein Muster.",
+  },
+  {
+    num: "04",
+    href: "/cv/",
+    title: "CV",
+    body: "Aktuelle Version ansehen oder drucken.",
+  },
+  {
+    num: "05",
+    href: "/notes/",
+    title: "Notes",
+    body: "Artikel, in Vorbereitung.",
+  },
+];
 ---
 
 <Base
@@ -69,25 +100,38 @@ const recent = changelog.slice(0, 3);
       Robert Bosch GmbH · das Career Operating System
     </p>
 
+    <ol class="modules">
+      {
+        modules.map((m) => (
+          <li data-reveal>
+            <a href={m.href}>
+              <span class="bar" aria-hidden="true" />
+              <span class="content">
+                <p class="num">{m.num}</p>
+                <p class="mod-title">{m.title}</p>
+                <p class="mod-body">{m.body}</p>
+              </span>
+            </a>
+          </li>
+        ))
+      }
+      <li data-reveal class="wide">
+        <a href="/changelog/">
+          <span class="bar" aria-hidden="true" />
+          <span class="content">
+            <p class="num">06</p>
+            <p class="mod-title">Wird gerade gebaut — v{latest.version}</p>
+            <p class="mod-body">{latest.title}. {latest.notes}</p>
+          </span>
+        </a>
+      </li>
+    </ol>
+
     <p class="contact">
       <a href="https://www.linkedin.com/in/sahil-gaji/">LinkedIn</a>
       ·
       <a href="mailto:sahil.gaji@outlook.com">sahil.gaji@outlook.com</a>
     </p>
-
-    <Disclosure label="Was sich zuletzt geändert hat">
-      <ul class="recent">
-        {
-          recent.map((entry) => (
-            <li>
-              <span class="v">v{entry.version}</span> — {entry.title}
-              <span class="d">{entry.notes}</span>
-            </li>
-          ))
-        }
-      </ul>
-      <p class="see-all"><a href="/changelog/">Vollständiges Changelog →</a></p>
-    </Disclosure>
   </main>
 
   <Footer lang="de" />
@@ -203,37 +247,86 @@ const recent = changelog.slice(0, 3);
     font-family: var(--font-mono);
     font-size: 0.82rem;
     color: var(--color-ink-muted);
-    margin: 0 0 var(--space-4);
-  }
-  .contact {
-    font-size: 0.95rem;
     margin: 0 0 var(--space-6);
   }
 
-  .recent {
+  .modules {
     list-style: none;
     padding: 0;
-    margin: 0 0 var(--space-2);
-    display: flex;
-    flex-direction: column;
+    margin: 0 0 var(--space-6);
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr));
     gap: var(--space-2);
   }
-  .recent li {
-    font-family: var(--font-mono);
-    font-size: 0.82rem;
+  .modules li {
+    border: 1px solid var(--color-line);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: box-shadow 0.2s ease-out, transform 0.2s ease-out, border-color 0.2s ease-out;
   }
-  .recent .v {
-    color: var(--color-accent);
+  .modules li.wide {
+    grid-column: 1 / -1;
   }
-  .recent .d {
+  .modules li:has(a:hover) {
+    border-color: var(--color-accent);
+    box-shadow: 0 8px 28px color-mix(in srgb, var(--color-accent) 16%, transparent);
+    transform: translateY(-2px);
+  }
+  .modules a {
+    display: flex;
+    align-items: stretch;
+    height: 100%;
+    text-decoration: none;
+    color: var(--color-ink);
+  }
+  .modules .bar {
+    width: 3px;
+    flex-shrink: 0;
+    background: var(--color-accent);
+    transform: scaleY(0);
+    transform-origin: top;
+    transition: transform 0.2s ease-out;
+  }
+  .modules a:hover .bar {
+    transform: scaleY(1);
+  }
+  .modules .content {
     display: block;
-    font-family: var(--font-sans);
-    font-size: 0.85rem;
-    color: var(--color-ink-muted);
-    margin-top: 0.15rem;
+    padding: var(--space-3);
+    transition: transform 0.2s ease-out;
   }
-  .see-all {
+  .modules a:hover .content {
+    transform: translateX(4px);
+  }
+  .num {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--color-accent);
+    margin: 0 0 var(--space-1);
+  }
+  .mod-title {
+    font-family: var(--font-serif);
+    font-size: 1.15rem;
+    margin: 0 0 0.25rem;
+  }
+  .mod-body {
+    font-size: 0.88rem;
+    color: var(--color-ink-muted);
     margin: 0;
-    font-size: 0.82rem;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .modules li,
+    .modules .bar,
+    .modules .content {
+      transition: none;
+    }
+    .modules li:has(a:hover) {
+      transform: none;
+    }
+  }
+
+  .contact {
+    font-size: 0.95rem;
+    margin: 0;
   }
 </style>

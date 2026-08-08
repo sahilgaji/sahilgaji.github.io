@@ -1,5 +1,11 @@
 [
   {
+    "version": "0.16.0",
+    "date": "2026-08-08",
+    "title": "a module grid on Home",
+    "notes": "Inspired by a reference site Sahil pointed to: Home's lower half is now six numbered, clickable modules (Work, How I work, About, CV, Notes, and this changelog) instead of a linear stack of paragraphs — same content, restructured as real destinations. Reused the sliding-accent-bar hover already built for the Work index rather than inventing a new pattern. Footer now credits the typefaces (Newsreader & Geist Mono), a small detail borrowed from the same reference. What stayed out on purpose: the reference site's personal-data modules (cycling stats, reading list, now-playing) — copying the pattern without content only Sahil has would mean inventing facts about him."
+  },
+  {
     "version": "0.15.0",
     "date": "2026-08-05",
     "title": "atmosphere",
