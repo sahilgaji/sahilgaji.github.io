@@ -66,7 +66,9 @@ const cases = [
   }
   h1 {
     font-family: var(--font-serif);
-    font-size: 2rem;
+    font-size: clamp(2.1rem, 5vw, 2.9rem);
+    line-height: 1.1;
+    letter-spacing: -0.01em;
     font-weight: 400;
     margin: 0 0 var(--space-3);
   }
@@ -87,6 +89,20 @@ const cases = [
     border: 1px solid var(--color-line);
     border-radius: 6px;
     overflow: hidden;
+    transition: box-shadow 0.2s ease-out, transform 0.2s ease-out;
+  }
+  .cases li:has(a:hover) {
+    border-color: var(--color-accent);
+    box-shadow: 0 8px 28px color-mix(in srgb, var(--color-accent) 16%, transparent);
+    transform: translateY(-2px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cases li {
+      transition: none;
+    }
+    .cases li:has(a:hover) {
+      transform: none;
+    }
   }
   .cases a {
     display: flex;
@@ -112,9 +128,6 @@ const cases = [
   }
   .cases a:hover .content {
     transform: translateX(4px);
-  }
-  .cases li:has(a:hover) {
-    border-color: var(--color-accent);
   }
   @media (prefers-reduced-motion: reduce) {
     .bar,

@@ -1,5 +1,11 @@
 [
   {
+    "version": "0.15.0",
+    "date": "2026-08-05",
+    "title": "atmosphere",
+    "notes": "A soft, slowly-drifting glow behind Home's hero — the 'engineer's notebook' concept finally has real texture: a subtle dot-grid runs sitewide (paper, not screen). Bigger, tighter, more confident headlines everywhere, not just Home. Pull-quotes in the case studies now break wider than the text column and read louder. Cards and stat tiles lift with a soft accent-tinted glow on hover instead of just a border-color change. Still no flat gradient fills, no cursor effects, no particle backgrounds — those stay a deliberate line, not an oversight."
+  },
+  {
     "version": "0.14.0",
     "date": "2026-08-05",
     "title": "the site gets some motion",

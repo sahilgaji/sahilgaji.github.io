@@ -72,11 +72,18 @@ const {
   }
   body {
     margin: 0;
-    background: var(--color-paper);
+    background-color: var(--color-paper);
+    background-image: radial-gradient(circle, var(--color-line) 1px, transparent 1px);
+    background-size: 26px 26px;
     color: var(--color-ink);
     font-family: var(--font-sans);
     line-height: 1.65;
     -webkit-font-smoothing: antialiased;
+  }
+  @media print {
+    body {
+      background-image: none !important;
+    }
   }
   a {
     color: var(--color-accent);
