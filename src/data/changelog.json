@@ -1,5 +1,11 @@
 [
   {
+    "version": "0.12.0",
+    "date": "2026-08-05",
+    "title": "a heads-up for CV traffic",
+    "notes": "The URL is now on Sahil's actual CV, so real visitors land here directly — noindex only stops search engines, not a direct link. Home now opens with a small work-in-progress badge before anything else."
+  },
+  {
     "version": "0.11.0",
     "date": "2026-08-05",
     "title": "all three case studies, live",
