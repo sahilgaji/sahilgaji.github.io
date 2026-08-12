@@ -1,5 +1,11 @@
 [
   {
+    "version": "0.19.0",
+    "date": "2026-08-12",
+    "title": "Signal & Surface is now Home",
+    "notes": "Sahil pointed out the deployed fonts didn't match his real Manus-hosted site. He was right — investigation of the real page source and its compiled CSS found the actual fonts (Space Grotesk, DM Mono, no serif at all) and background color (#f7f4ee), all self-hosted now, no CDN. With that fixed, this promotes to the actual Home at '/', replacing the module-grid design (archived, not deleted, at src/pages/_archive/). Impressum and Datenschutz links — absent from the original component, legally required regardless of design — were added to the new footer. Honest caveat: font and background are now verified against the real site; exact color/spacing choices beyond those two are a reasoned approximation, not a confirmed pixel match, since the browser tool needed to inspect the live rendered page disconnected mid-session."
+  },
+  {
     "version": "0.18.0",
     "date": "2026-08-08",
     "title": "a Signal & Surface preview, at its own URL",

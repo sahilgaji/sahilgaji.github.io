@@ -15,6 +15,9 @@ import {
 // Github and Linkedin brand icons aren't exported by the installed
 // lucide-react version (removed upstream) — ArrowUpRight substitutes,
 // already used elsewhere on this page for the same "opens elsewhere" cue.
+import "@fontsource-variable/space-grotesk";
+import "@fontsource/dm-mono/400.css";
+import "@fontsource/dm-mono/500.css";
 import "./signal-surface.css";
 
 // Placeholder assets (SVG, abstract) — swap for the real Manus exports once
@@ -424,6 +427,10 @@ export default function Home() {
           <a href="https://www.linkedin.com/in/sahil-gaji/" target="_blank" rel="noreferrer"><ArrowUpRight size={16} /> LinkedIn</a>
           <a href="https://github.com/sahilgaji/sahilgaji.github.io" target="_blank" rel="noreferrer"><ArrowUpRight size={16} /> GitHub</a>
           <a href="mailto:sahil.gaji@outlook.com"><Mail size={16} /> Email</a>
+          {/* Required for a Germany-operated site regardless of design —
+              not part of the original component, added out of necessity. */}
+          <a href="/impressum/">Impressum</a>
+          <a href="/datenschutz/">Datenschutz</a>
         </div>
       </footer>
     </div>

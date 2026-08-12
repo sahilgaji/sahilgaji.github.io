@@ -28,8 +28,26 @@ was authored from scratch, since none was provided, inferring intent from
 class names and the component's own design-system comment ("cobalt
 signals", "warm editorial").
 
-This page is **not** wired in as the site's actual Home. It exists at its
-own URL for review.
+**Update, same day:** Sahil confirmed the fonts didn't match the real
+Manus-hosted deployment. Investigation (the site's actual `<head>` source,
+provided directly, plus its compiled CSS bundle fetched and read) found
+real, verifiable design tokens: fonts are Space Grotesk (sans, used for
+everything — no serif) and DM Mono, background `#f7f4ee`. The stylesheet
+was corrected to match, self-hosted via Fontsource per the site's existing
+GDPR-safe pattern (no Google Fonts CDN). Given the fix directly resolved
+Sahil's specific concern and he'd already asked repeatedly for this to be
+the actual Home, it was promoted to `/` — the previous module-grid Home is
+archived at `src/pages/_archive/index-v1-module-grid.astro.bak`, not
+deleted. The Impressum/Datenschutz links (absent from the original
+component, legally required for a Germany-operated site) were added to
+its footer as a hard requirement independent of the design decision.
+
+**What's still unverified:** exact per-element color and spacing choices
+beyond the font/background tokens confirmed above. Tailwind's full default
+color palette is present in the compiled CSS, but which specific shades
+are actually applied to which elements can't be confirmed without a
+JS-rendering browser tool, which disconnected mid-session. The cobalt/
+coral accents are a reasoned approximation, not a confirmed match.
 
 ## Consequences
 
