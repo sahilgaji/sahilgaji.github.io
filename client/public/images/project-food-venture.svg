@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 810 500">
+  <rect width="810" height="500" fill="#e8e2d7"/>
+  <rect x="120" y="120" width="180" height="180" fill="none" stroke="#295bff" stroke-width="2"/>
+  <rect x="320" y="160" width="140" height="140" fill="#ff8f7e" opacity="0.85"/>
+  <rect x="480" y="100" width="200" height="200" fill="none" stroke="#141412" stroke-width="1" opacity="0.55"/>
+  <line x1="120" y1="360" x2="680" y2="360" stroke="#141412" stroke-width="1" opacity="0.4"/>
+  <text x="120" y="410" font-family="monospace" font-size="15" letter-spacing="2" fill="#141412" opacity="0.55">CLUB HOUSE</text>
+</svg>
