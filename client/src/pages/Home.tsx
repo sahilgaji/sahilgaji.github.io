@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ScrollProgress } from "../components/ScrollProgress";
 import { ProjectCaseModal } from "../components/ProjectCaseModal";
+import { AnimatedBackground } from "../components/AnimatedBackground";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -257,9 +258,15 @@ export default function Home() {
           <span className="brand-name">Sahil Gaji</span>
         </a>
         <nav className="desktop-nav" aria-label="Primary navigation">
-          {navItems.map((item) => (
-            <a href={`#${item.id}`} key={item.id} className={activeSection === item.id ? "nav-link is-active" : "nav-link"}>{item.label}</a>
-          ))}
+          <AnimatedBackground
+            className="nav-highlight"
+            transition={{ type: "spring", bounce: 0.2, duration: 0.3 }}
+            enableHover
+          >
+            {navItems.map((item) => (
+              <a href={`#${item.id}`} data-id={item.id} key={item.id} className={activeSection === item.id ? "nav-link is-active" : "nav-link"}>{item.label}</a>
+            ))}
+          </AnimatedBackground>
         </nav>
         <a className="cv-link" href="https://sahilgaji.github.io/cv/" target="_blank" rel="noreferrer">CV <ArrowUpRight size={15} strokeWidth={2.1} /></a>
         <button className="menu-toggle" onClick={() => setMenuOpen((open) => !open)} aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen}>
