@@ -97,6 +97,8 @@
   h1, h2, h3, p { margin: 0; }
   h1 { max-width: 760px; font-size: clamp(3.3rem, 6.35vw, 7.5rem); font-weight: 600; letter-spacing: -.082em; line-height: .92; }
   h1 em, h2 em { color: var(--blue-text); font-style: normal; font-weight: 500; }
+  .text-loop { position: relative; display: inline-block; overflow-y: clip; vertical-align: bottom; perspective: 400px; }
+  .text-loop-item { display: inline-block; }
   .hero-route { display: flex; align-items: center; gap: .55rem; margin-top: 1.5rem; color: var(--blue-text); font-family: var(--font-mono); font-size: .52rem; letter-spacing: .075em; text-transform: uppercase; }.hero-route i { display: block; width: clamp(22px, 4vw, 50px); height: 1px; background: currentColor; }
   .hero-summary { display: flex; align-items: flex-end; gap: 1.5rem; max-width: 500px; margin-top: clamp(2rem, 4vw, 3.5rem); }
   .hero-summary p { max-width: 390px; color: #56524b; font-size: clamp(.97rem, 1.32vw, 1.13rem); letter-spacing: -.025em; line-height: 1.55; }

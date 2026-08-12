@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ScrollProgress } from "../components/ScrollProgress";
 import { ProjectCaseModal } from "../components/ProjectCaseModal";
+import { TextLoop } from "../components/TextLoop";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -30,6 +31,8 @@ const navItems = [
   { id: "about", label: "Journey" },
   { id: "contact", label: "Consultation" },
 ];
+
+const HEADLINE_VERBS = ["build", "plan", "design", "implement", "optimise"];
 
 const projects = [
   {
@@ -320,7 +323,7 @@ export default function Home() {
           </div>
           <div className="hero-copy">
             <p className="hero-kicker reveal-up delay-1">Sahil Gaji / Boot sequence</p>
-            <h1 className="reveal-up delay-2">I build systems that <em>keep working</em> when I leave the room.</h1>
+            <h1 className="reveal-up delay-2">I <TextLoop words={HEADLINE_VERBS} /> systems that <em>keep working</em> even when I leave the room.</h1>
             <div className="hero-route reveal-up delay-3" aria-hidden="true"><span>Observe</span><i /><span>Build</span><i /><span>Adopt</span></div>
             <div className="hero-summary reveal-up delay-3">
               <p>Mechanical engineer by training. Project-management and digital-transformation person by choice. I turn messy work into clear, adopted systems—partly to improve it, partly to stop it messaging people at 17:58.</p>
