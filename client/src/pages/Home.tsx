@@ -178,6 +178,7 @@ const timeline = [
     role: "M.Sc. Digital Transformation Management",
     org: "SRH Berlin University of Applied Sciences",
     note: "Business analytics, digital strategy, and change management, graded very good (2.0) — with two internships running alongside it.",
+    type: "education",
   },
   {
     period: "2024",
@@ -220,6 +221,7 @@ const timeline = [
     role: "B.E. Mechanical Engineering",
     org: "Savitribai Phule Pune University",
     note: "Where the reorganising instinct started: systems engineering, lean manufacturing, and a lot of CAD.",
+    type: "education",
   },
 ];
 
@@ -325,7 +327,7 @@ export default function Home() {
           <div className="hero-copy">
             <p className="hero-kicker reveal-up delay-1">Sahil Gaji / Boot sequence</p>
             <h1 className="reveal-up delay-2 hero-headline">
-              <span className="hero-headline-line1">I <TextLoop words={HEADLINE_VERBS} /> systems</span>
+              <span className="hero-headline-line1">I <TextLoop words={HEADLINE_VERBS} /> <motion.span layout className="hero-headline-word" transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}>systems</motion.span></span>
               that <em>keep working</em>
               <br />even when I
               <br />leave the room.
@@ -356,7 +358,7 @@ export default function Home() {
 
         <section id="work" className="work-section section-frame section-anchor">
           <div className="section-head">
-            <div><p className="eyebrow">01 / Selected work</p><h2>Things I made<br /><em>less chaotic.</em></h2></div>
+            <div><p className="eyebrow">01 / My Work</p><h2>Things I made<br /><em>less chaotic.</em></h2></div>
             <p className="section-intro">No cinematic whiteboards. Just what was built, what changed, and whether the system survived handover.</p>
           </div>
           <div className="work-layout">
@@ -385,7 +387,7 @@ export default function Home() {
         </section>
 
         <section id="method" className="method-section section-frame section-anchor">
-          <div className="method-intro"><p className="eyebrow">02 / Known operating conditions</p><h2>Structure is a<br /><em>human service.</em></h2><p>I ask annoying clarifying questions early, so nobody has to ask expensive ones later. Tools matter, but people need to recognise themselves in the way a system works.</p><div className="method-artifact" aria-hidden="true"><span>SG / 02</span><i /><i /><b /></div></div>
+          <div className="method-intro"><p className="eyebrow">02 / What I try to do</p><h2>Structure is a<br /><em>human service.</em></h2><p>I ask annoying clarifying questions early, so nobody has to ask expensive ones later. Tools matter, but people need to recognise themselves in the way a system works.</p><div className="method-artifact" aria-hidden="true"><span>SG / 02</span><i /><i /><b /></div></div>
           <div className="principles-shell">
             <div className="method-route" aria-hidden="true"><span>INPUT</span><i /><span>CLARITY</span><i /><span>CHANGE</span></div>
             <div className="principles-list">{principles.map((principle) => <article className="principle" key={principle.number} tabIndex={0}><span className="principle-number">{principle.number}</span><h3>{principle.title}</h3><p>{principle.evidence}</p><span className="principle-plus">+</span></article>)}</div>
@@ -394,25 +396,18 @@ export default function Home() {
 
         <section id="about" className="about-section section-frame section-anchor">
           <div className="about-aside">
-            <p className="eyebrow">03 / Patch notes: 2015 — now</p><h2>Many contexts.<br /><em>Same impulse.</em></h2>
+            <p className="eyebrow">03 / Where I started and where I am now</p><h2>Many contexts.<br /><em>Same impulse.</em></h2>
             <p className="about-lede">Mechanical systems first. Then production systems. Then people systems—which have fewer bolts and considerably more opinions.</p>
-            <div className="education-card"><span>Education</span><strong>M.Sc. Digital Transformation Management</strong><small>SRH Berlin · “very good” · German B1</small></div><div className="about-artifact" aria-hidden="true"><span>FIELD NOTE / 03</span><i /><b /></div>
           </div>
           <div className="timeline-shell">
             <div className="about-route" aria-hidden="true"><span>MECHANICAL</span><i /><span>DIGITAL</span><i /><span>DURABLE</span></div>
-            <div className="timeline">{timeline.map((item, index) => <article className="timeline-item" key={item.period + item.role}><span className="timeline-dot" /><span className="timeline-period">{item.period}</span><div><h3>{item.role}</h3><p className="timeline-org">{item.org}</p><p className="timeline-note">{item.note}</p></div><span className="timeline-index">{String(index + 1).padStart(2, "0")}</span></article>)}</div>
+            <div className="timeline">{timeline.map((item, index) => <article className={item.type === "education" ? "timeline-item is-education" : "timeline-item"} key={item.period + item.role}><span className="timeline-dot" /><span className="timeline-period">{item.period}</span><div>{item.type === "education" && <span className="timeline-badge">Education</span>}<h3>{item.role}</h3><p className="timeline-org">{item.org}</p><p className="timeline-note">{item.note}</p></div><span className="timeline-index">{String(index + 1).padStart(2, "0")}</span></article>)}</div>
           </div>
-        </section>
-
-        <section className="notes-section section-frame">
-          <div className="notes-artifact" aria-hidden="true"><span>SG</span><i /><b /></div>
-          <div className="notes-copy"><p className="eyebrow">04 / Notes, queued</p><h2>Thinking in public,<br /><em>carefully.</em></h2><p>Notes are on their way. Until then, the useful bits are already in the work: what happened, what was built, and what I would change before pretending it was perfect.</p></div>
-          <a href="https://sahilgaji.github.io/changelog/" target="_blank" rel="noreferrer" className="changelog-card"><span className="pulse-dot" /><span className="eyebrow">Work in progress</span><strong>See what’s shipping so far.</strong><MoveRight size={27} /></a>
         </section>
 
         <section id="contact" className="contact-section section-frame section-anchor">
           <div className="contact-artifact" aria-hidden="true"><span>CHANNEL / 05</span><i /><i /></div>
-          <p className="eyebrow">05 / Talk to the operator</p><h2>If the workflow relies on<br /><em>one spreadsheet and hope,</em><br />we should probably talk.</h2>
+          <p className="eyebrow">05 / It'll be a pleasure working with you!</p><h2><span className="nowrap-line">If the workflow relies on</span><br /><em className="nowrap-line">one spreadsheet and hope,</em><br /><span className="nowrap-line">we should probably talk.</span></h2>
           <div className="contact-bottom">
             <div className="contact-details">
               <a className="contact-detail" href="mailto:sahil.gaji@outlook.com"><span className="contact-detail-label">Email</span><span className="contact-detail-value">sahil.gaji@outlook.com <ArrowUpRight size={16} /></span></a>
