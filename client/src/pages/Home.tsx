@@ -236,6 +236,7 @@ export default function Home() {
   const [showHumanVersion, setShowHumanVersion] = useState(false);
   const [pointer, setPointer] = useState({ x: 50, y: 50 });
   const [caseModalProject, setCaseModalProject] = useState<Project | null>(null);
+  const [hoveredDockId, setHoveredDockId] = useState<string | null>(null);
   const project = projects[activeProject];
   const status = sectionStatus[activeSection];
 
@@ -287,16 +288,27 @@ export default function Home() {
       </header>
 
       <nav className="dock-nav" aria-label="Primary navigation">
-        <div className="dock-panel">
-          {navItems.map((item) => (
-            <a
-              key={item.id}
-              href={`#${item.id}`}
-              className={activeSection === item.id ? "dock-pill is-active" : "dock-pill"}
-            >
-              {item.label}
-            </a>
-          ))}
+        <div className="dock-panel" onMouseLeave={() => setHoveredDockId(null)}>
+          {navItems.map((item) => {
+            const isHighlighted = (hoveredDockId ?? activeSection) === item.id;
+            return (
+              <a
+                key={item.id}
+                href={`#${item.id}`}
+                onMouseEnter={() => setHoveredDockId(item.id)}
+                className={isHighlighted ? "dock-pill is-active" : "dock-pill"}
+              >
+                {isHighlighted && (
+                  <motion.span
+                    layoutId="dock-highlight"
+                    className="dock-pill-highlight"
+                    transition={{ type: "spring", bounce: 0.25, duration: 0.35 }}
+                  />
+                )}
+                <span className="dock-pill-label">{item.label}</span>
+              </a>
+            );
+          })}
         </div>
       </nav>
 

@@ -2,7 +2,7 @@ import { motion, useMotionValue, useSpring, type SpringOptions } from "framer-mo
 import { useEffect, useState } from "react";
 
 const SPRING: SpringOptions = { bounce: 0.3, duration: 0.1 };
-const SIZE = 260;
+const SIZE = 52;
 
 export function Spotlight() {
   const [isVisible, setIsVisible] = useState(false);
