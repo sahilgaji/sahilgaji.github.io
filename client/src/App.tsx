@@ -3,6 +3,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/NotFound";
 import { Route, Switch } from "wouter";
 import ErrorBoundary from "./components/ErrorBoundary";
+import { SmoothScroll } from "./components/SmoothScroll";
+import { Spotlight } from "./components/Spotlight";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import Impressum from "./pages/Impressum";
@@ -36,6 +38,8 @@ function App() {
       >
         <TooltipProvider>
           <Toaster />
+          <SmoothScroll />
+          <Spotlight />
           <Router />
         </TooltipProvider>
       </ThemeProvider>

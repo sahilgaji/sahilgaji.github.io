@@ -2,6 +2,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import { X } from "lucide-react";
 import { useEffect, useRef } from "react";
 import type { Project } from "../pages/Home";
+import { pauseSmoothScroll, resumeSmoothScroll } from "../lib/lenis";
 
 type ProjectCaseModalProps = {
   project: Project | null;
@@ -20,10 +21,12 @@ export function ProjectCaseModal({ project, onClose }: ProjectCaseModalProps) {
     };
     document.addEventListener("keydown", handleKey);
     document.body.style.overflow = "hidden";
+    pauseSmoothScroll();
     closeRef.current?.focus();
     return () => {
       document.removeEventListener("keydown", handleKey);
       document.body.style.overflow = "";
+      resumeSmoothScroll();
     };
   }, [project, onClose]);
 
