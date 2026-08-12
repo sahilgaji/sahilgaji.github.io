@@ -6,12 +6,14 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ScrollProgress } from "../components/ScrollProgress";
 import { ProjectCaseModal } from "../components/ProjectCaseModal";
-import { TextLoop } from "../components/TextLoop";
+import { Typewriter } from "../components/Typewriter";
+import { TextRoll } from "../components/TextRoll";
 import { ThemeToggle } from "../components/ThemeToggle";
 import {
   ArrowDown,
   ArrowUpRight,
   Check,
+  Link2,
   MoveRight,
 } from "lucide-react";
 
@@ -30,7 +32,7 @@ const navItems = [
   { id: "contact", label: "Consultation" },
 ];
 
-const HEADLINE_VERBS = ["plan", "optimise", "build"];
+const HEADLINE_VERBS = ["build", "plan", "optimise"];
 
 const projects = [
   {
@@ -240,6 +242,7 @@ export default function Home() {
   const [pointer, setPointer] = useState({ x: 50, y: 50 });
   const [caseModalProject, setCaseModalProject] = useState<Project | null>(null);
   const [hoveredDockId, setHoveredDockId] = useState<string | null>(null);
+  const [shareState, setShareState] = useState<"idle" | "copied">("idle");
   const project = projects[activeProject];
   const status = sectionStatus[activeSection];
 
@@ -270,6 +273,25 @@ export default function Home() {
   const selectProject = (index: number) => {
     setActiveProject(index);
     setShowHumanVersion(false);
+  };
+
+  const handleShare = async () => {
+    const shareData = { title: document.title, url: window.location.href };
+    if (navigator.share) {
+      try {
+        await navigator.share(shareData);
+      } catch {
+        // user cancelled the share sheet — no action needed
+      }
+      return;
+    }
+    try {
+      await navigator.clipboard.writeText(shareData.url);
+      setShareState("copied");
+      setTimeout(() => setShareState("idle"), 2000);
+    } catch {
+      // clipboard unavailable — nothing more we can do
+    }
   };
 
   return (
@@ -325,12 +347,12 @@ export default function Home() {
             <span className="hero-location">Hamburg, DE <i /></span>
           </div>
           <div className="hero-copy">
-            <p className="hero-kicker reveal-up delay-1">Sahil Gaji / Boot sequence</p>
+            <p className="hero-kicker reveal-up delay-1">Sahil Gaji / Who am I?</p>
             <h1 className="reveal-up delay-2 hero-headline">
-              <span className="hero-headline-line1">I <TextLoop words={HEADLINE_VERBS} /> <motion.span layout className="hero-headline-word" transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}>systems</motion.span></span>
+              <span className="hero-headline-line1">I <Typewriter words={HEADLINE_VERBS} /> <motion.span layout className="hero-headline-word" transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}>systems</motion.span></span>
               that <em>keep working</em>
-              <br />even when I
-              <br />leave the room.
+              <br />even when
+              <br />I leave the room.
             </h1>
             <div className="hero-route reveal-up delay-3" aria-hidden="true"><span>Observe</span><i /><span>Build</span><i /><span>Adopt</span></div>
             <div className="hero-summary reveal-up delay-3">
@@ -344,7 +366,7 @@ export default function Home() {
             <div className="art-caption"><span>Signal / 01</span><span>Scroll to inspect</span></div>
           </div>
           <div className="hero-bottom reveal-up delay-4">
-            <p><span className="status-dot" /> {status} · Open to junior PM, PMO, process &amp; digital-transformation conversations.</p>
+            <p><span className="status-dot" /> <span className="sr-only">OPEN TO: JUNIOR PM, IT CONSULTANT, PROCESS &amp; DIGITAL TRANSFORMATION CONVERSATIONS</span><TextRoll text="OPEN TO: JUNIOR PM, IT CONSULTANT, PROCESS & DIGITAL TRANSFORMATION CONVERSATIONS" /></p>
             <a href="#contact">Start a conversation <MoveRight size={16} /></a>
           </div>
         </section>
@@ -417,6 +439,9 @@ export default function Home() {
               <a className="contact-detail" href="https://topmate.io/sahil_gaji" target="_blank" rel="noreferrer"><span className="contact-detail-label">Topmate</span><span className="contact-detail-value">sahil_gaji <ArrowUpRight size={16} /></span></a>
             </div>
             <p className="contact-languages">English (business fluent) · German (B1) · Hindi &amp; Marathi (native)</p>
+            <button type="button" className="share-button" onClick={handleShare}>
+              <Link2 size={15} /> {shareState === "copied" ? "Link copied" : "Share this page"}
+            </button>
           </div>
         </section>
       </main>
