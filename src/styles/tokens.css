@@ -14,13 +14,16 @@
   --color-line: #e8e2d9;
   --color-accent: #b45309; /* amber, darkened for AA contrast on paper */
 
-  /* type — three voices (ADR-003): serif = display, sans = body/UI, mono = data.
-     Newsreader and Geist Mono are self-hosted variable fonts (OFL, via Fontsource),
-     imported globally in Base.astro. Body deliberately uses the system stack:
-     zero font bytes for the most-read voice. */
+  /* type (ADR-005 update): display headings sitewide now use Space Grotesk,
+     bold, matching the real Manus deployment — replacing Newsreader serif for
+     this role. --font-serif keeps its name for now (every page still
+     references it) but points at Space Grotesk; body stays system stack
+     (zero font bytes), data stays Geist Mono. All self-hosted (OFL/GDPR). */
   --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
-  --font-serif: "Newsreader Variable", Georgia, "Times New Roman", serif;
+  --font-serif: "Space Grotesk Variable", "Newsreader Variable", Georgia, sans-serif;
   --font-mono: "Geist Mono Variable", ui-monospace, "Cascadia Code", Consolas, monospace;
+  --font-display-weight: 700;
+  --font-display-tracking: -0.02em;
 
   /* spacing — 8px scale */
   --space-1: 0.5rem;
