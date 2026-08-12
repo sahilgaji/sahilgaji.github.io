@@ -1,0 +1,953 @@
+/*
+  Signal & Surface — stylesheet written from scratch to support the React
+  component given verbatim. No stylesheet was provided with the original
+  code; every rule below is original CSS, inferring intent from class names
+  and the design-system comment at the top of the component.
+
+  Palette: warm paper (matches the rest of the site) + two new accents
+  introduced specifically for this page — cobalt and coral — since the
+  component's own design-system note names them explicitly. This is a
+  deliberate, page-scoped departure from the site's amber accent used
+  everywhere else; see ADR-005 for the tradeoff.
+*/
+
+.signal-surface {
+  --cobalt: #2f4bd6;
+  --cobalt-dim: #1f2f8f;
+  --coral: #ff6b4a;
+  --paper: #f5f1ea;
+  --ink: #1c1a17;
+  --ink-muted: #6f6862;
+  --line: #e2dccf;
+  --radius: 14px;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.6;
+}
+:root[data-theme="dark"] .signal-surface,
+:root:not([data-theme="light"]) .signal-surface {
+  --paper: #14151c;
+  --ink: #ece9e2;
+  --ink-muted: #9b968c;
+  --line: #2b2c36;
+  --cobalt: #6d84ff;
+  --coral: #ff8a6b;
+}
+
+.signal-surface em {
+  font-style: italic;
+  color: var(--cobalt);
+}
+
+.signal-surface .section-frame {
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 4rem 1.75rem;
+  position: relative;
+}
+.signal-surface .section-anchor {
+  scroll-margin-top: 5rem;
+}
+.signal-surface .eyebrow {
+  font-family: ui-monospace, "Cascadia Code", Consolas, monospace;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--cobalt);
+}
+
+/* subtle grain overlay */
+.signal-surface .grain {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 40;
+  opacity: 0.035;
+  background-image: radial-gradient(circle, #000 1px, transparent 1px);
+  background-size: 3px 3px;
+}
+
+/* signal rail — thin fixed side marker */
+.signal-surface .signal-rail {
+  position: fixed;
+  left: 1.1rem;
+  top: 0;
+  bottom: 0;
+  width: 1.5rem;
+  z-index: 30;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1.5rem 0;
+}
+@media (min-width: 64rem) {
+  .signal-surface .signal-rail {
+    display: flex;
+  }
+}
+.signal-surface .rail-mark {
+  width: 1.4rem;
+  height: 1.4rem;
+  border-radius: 50%;
+}
+.signal-surface .rail-label {
+  writing-mode: vertical-rl;
+  font-family: ui-monospace, monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  color: var(--ink-muted);
+}
+.signal-surface .rail-line {
+  flex: 1;
+  width: 1px;
+  background: var(--line);
+  position: relative;
+}
+.signal-surface .rail-progress {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: var(--cobalt);
+  transition: height 0.3s ease-out;
+  height: 4%;
+}
+.signal-surface .rail-work { height: 25%; }
+.signal-surface .rail-method { height: 50%; }
+.signal-surface .rail-about { height: 75%; }
+.signal-surface .rail-contact { height: 100%; }
+
+/* topbar */
+.signal-surface .topbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.9rem 1.75rem;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--line);
+}
+.signal-surface .brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  text-decoration: none;
+  color: var(--ink);
+}
+.signal-surface .brand-mark {
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+}
+.signal-surface .brand-name {
+  font-family: "Newsreader Variable", Georgia, serif;
+  font-size: 1.05rem;
+}
+.signal-surface .desktop-nav {
+  display: none;
+  gap: 1.75rem;
+}
+@media (min-width: 56rem) {
+  .signal-surface .desktop-nav { display: flex; }
+}
+.signal-surface .nav-link {
+  font-size: 0.88rem;
+  text-decoration: none;
+  color: var(--ink-muted);
+  position: relative;
+  padding-bottom: 2px;
+}
+.signal-surface .nav-link.is-active {
+  color: var(--ink);
+}
+.signal-surface .nav-link.is-active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 2px;
+  background: var(--cobalt);
+}
+.signal-surface .cv-link {
+  display: none;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: ui-monospace, monospace;
+  font-size: 0.8rem;
+  text-decoration: none;
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.4rem 0.9rem;
+}
+@media (min-width: 56rem) {
+  .signal-surface .cv-link { display: inline-flex; }
+}
+.signal-surface .cv-link:hover {
+  border-color: var(--cobalt);
+  color: var(--cobalt);
+}
+.signal-surface .menu-toggle {
+  display: inline-flex;
+  background: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.5rem;
+  color: var(--ink);
+  cursor: pointer;
+}
+@media (min-width: 56rem) {
+  .signal-surface .menu-toggle { display: none; }
+}
+
+/* mobile menu */
+.signal-surface .mobile-menu {
+  position: fixed;
+  inset: 0;
+  z-index: 45;
+  background: var(--paper);
+  transform: translateY(-100%);
+  transition: transform 0.3s ease-out;
+  overflow-y: auto;
+}
+.signal-surface .mobile-menu.is-open {
+  transform: translateY(0);
+}
+.signal-surface .mobile-menu-inner {
+  padding: 6rem 1.75rem 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.signal-surface .mobile-menu-inner a {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: "Newsreader Variable", Georgia, serif;
+  font-size: 1.6rem;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 0.75rem;
+}
+
+/* hero */
+.signal-surface .hero {
+  padding-top: 3rem;
+  position: relative;
+}
+.signal-surface .hero-labels {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  font-size: 0.85rem;
+}
+.signal-surface .hero-location {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--ink-muted);
+  font-family: ui-monospace, monospace;
+}
+.signal-surface .hero-location i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--coral);
+  display: inline-block;
+}
+.signal-surface .hero-copy {
+  max-width: 42rem;
+}
+.signal-surface .hero-kicker {
+  font-family: ui-monospace, monospace;
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  margin: 0 0 0.75rem;
+}
+.signal-surface .hero-copy h1 {
+  font-family: "Newsreader Variable", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(2.2rem, 6vw, 3.6rem);
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin: 0 0 1.5rem;
+}
+.signal-surface .hero-route {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: ui-monospace, monospace;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  color: var(--cobalt);
+  text-transform: uppercase;
+  margin-bottom: 1.5rem;
+}
+.signal-surface .hero-route i {
+  width: 14px;
+  height: 1px;
+  background: var(--line);
+  display: inline-block;
+}
+.signal-surface .hero-summary {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+.signal-surface .hero-summary p {
+  max-width: 32rem;
+  color: var(--ink-muted);
+  margin: 0;
+}
+.signal-surface .round-arrow {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  text-decoration: none;
+  transition: border-color 0.2s ease-out, transform 0.2s ease-out;
+}
+.signal-surface .round-arrow:hover {
+  border-color: var(--cobalt);
+  color: var(--cobalt);
+  transform: translateY(3px);
+}
+
+/* hero art */
+.signal-surface .hero-art {
+  position: relative;
+  margin: 3rem 0;
+  border-radius: var(--radius);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  aspect-ratio: 16 / 9;
+}
+.signal-surface .hero-art img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.signal-surface .art-orbit {
+  position: absolute;
+  border: 1px solid color-mix(in srgb, var(--cobalt) 40%, transparent);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.signal-surface .orbit-a {
+  width: 60%;
+  aspect-ratio: 1;
+  left: calc(var(--pointer-x, 50%) - 30%);
+  top: calc(var(--pointer-y, 50%) - 30%);
+  transition: left 0.4s ease-out, top 0.4s ease-out;
+}
+.signal-surface .orbit-b {
+  width: 30%;
+  aspect-ratio: 1;
+  left: calc(var(--pointer-x, 50%) - 15%);
+  top: calc(var(--pointer-y, 50%) - 15%);
+  border-color: color-mix(in srgb, var(--coral) 40%, transparent);
+  transition: left 0.5s ease-out, top 0.5s ease-out;
+}
+.signal-surface .art-dot {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--coral);
+  left: calc(var(--pointer-x, 50%) - 4px);
+  top: calc(var(--pointer-y, 50%) - 4px);
+  transition: left 0.2s ease-out, top 0.2s ease-out;
+}
+.signal-surface .art-caption {
+  position: absolute;
+  bottom: 0.9rem;
+  left: 0.9rem;
+  right: 0.9rem;
+  display: flex;
+  justify-content: space-between;
+  font-family: ui-monospace, monospace;
+  font-size: 0.7rem;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+
+.signal-surface .hero-bottom {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid var(--line);
+  padding-top: 1.5rem;
+  font-size: 0.9rem;
+}
+.signal-surface .hero-bottom p {
+  color: var(--ink-muted);
+  margin: 0;
+}
+.signal-surface .hero-bottom a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--cobalt);
+  text-decoration: none;
+  font-weight: 600;
+}
+
+/* metrics strip */
+.signal-surface .metrics-strip {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1px;
+  background: var(--line);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+@media (min-width: 48rem) {
+  .signal-surface .metrics-strip { grid-template-columns: repeat(4, 1fr); }
+}
+.signal-surface .metrics-strip > div {
+  background: var(--paper);
+  padding: 1.5rem 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+.signal-surface .metrics-strip strong {
+  font-family: "Newsreader Variable", Georgia, serif;
+  font-size: 1.8rem;
+  color: var(--cobalt);
+}
+.signal-surface .metrics-strip span {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+/* section headers, shared */
+.signal-surface .section-head {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  justify-content: space-between;
+  margin-bottom: 3rem;
+}
+@media (min-width: 48rem) {
+  .signal-surface .section-head { flex-direction: row; align-items: flex-end; }
+}
+.signal-surface .section-head h2,
+.signal-surface .method-intro h2,
+.signal-surface .about-aside h2,
+.signal-surface .notes-copy h2,
+.signal-surface .contact-section h2 {
+  font-family: "Newsreader Variable", Georgia, serif;
+  font-weight: 400;
+  font-size: clamp(1.9rem, 4.5vw, 2.6rem);
+  line-height: 1.15;
+  margin: 0.4rem 0 0;
+}
+.signal-surface .section-intro {
+  max-width: 22rem;
+  color: var(--ink-muted);
+  font-size: 0.95rem;
+}
+
+/* work section — project switcher */
+.signal-surface .work-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+@media (min-width: 56rem) {
+  .signal-surface .work-layout { grid-template-columns: 18rem 1fr; gap: 0; }
+}
+.signal-surface .project-list {
+  display: flex;
+  flex-direction: column;
+  border-right: 1px solid var(--line);
+}
+.signal-surface .project-row {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  border-left: 3px solid transparent;
+  padding: 1.1rem 1.25rem;
+  text-align: left;
+  cursor: pointer;
+  color: var(--ink);
+  font: inherit;
+}
+.signal-surface .project-row.is-selected {
+  background: color-mix(in srgb, var(--cobalt) 8%, transparent);
+  border-left-color: var(--cobalt);
+}
+.signal-surface .project-number {
+  font-family: ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--cobalt);
+}
+.signal-surface .project-title-wrap {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.signal-surface .project-title-wrap strong {
+  font-family: "Newsreader Variable", Georgia, serif;
+  font-size: 1rem;
+}
+.signal-surface .project-title-wrap small {
+  color: var(--ink-muted);
+  font-size: 0.8rem;
+}
+.signal-surface .project-arrow {
+  opacity: 0.4;
+  flex-shrink: 0;
+}
+.signal-surface .project-row.is-selected .project-arrow {
+  opacity: 1;
+  color: var(--cobalt);
+}
+
+.signal-surface .project-viewer {
+  padding: 1.75rem;
+}
+.signal-surface .viewer-route {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: ui-monospace, monospace;
+  font-size: 0.68rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+  margin-bottom: 1rem;
+}
+.signal-surface .viewer-route i {
+  width: 10px;
+  height: 1px;
+  background: var(--line);
+  display: inline-block;
+}
+.signal-surface .viewer-image-wrap {
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  margin-bottom: 1.25rem;
+  aspect-ratio: 16 / 9;
+}
+.signal-surface .viewer-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.signal-surface .viewer-index {
+  position: absolute;
+  bottom: 0.75rem;
+  right: 0.9rem;
+  font-family: "Newsreader Variable", Georgia, serif;
+  font-size: 1.4rem;
+  color: #fff;
+  text-shadow: 0 1px 4px rgba(0,0,0,0.5);
+}
+.signal-surface .tag-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 1rem;
+}
+.signal-surface .tag-list span {
+  font-family: ui-monospace, monospace;
+  font-size: 0.7rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 0.25rem 0.7rem;
+  color: var(--ink-muted);
+}
+.signal-surface .viewer-statement {
+  font-family: "Newsreader Variable", Georgia, serif;
+  font-size: 1.3rem;
+  line-height: 1.35;
+  margin: 0 0 1.25rem;
+  max-width: 34rem;
+}
+.signal-surface .project-viewer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+.signal-surface .project-viewer li {
+  display: flex;
+  gap: 0.6rem;
+  align-items: flex-start;
+  font-size: 0.92rem;
+  color: var(--ink-muted);
+}
+.signal-surface .project-viewer li svg {
+  color: var(--cobalt);
+  flex-shrink: 0;
+  margin-top: 0.2rem;
+}
+.signal-surface .text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--cobalt);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 600;
+}
+
+/* method section */
+.signal-surface .method-intro {
+  max-width: 30rem;
+  margin-bottom: 2.5rem;
+}
+.signal-surface .method-intro p:last-child {
+  color: var(--ink-muted);
+  margin-top: 0.75rem;
+}
+.signal-surface .method-route {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+  margin-bottom: 1.5rem;
+}
+.signal-surface .method-route i {
+  width: 14px;
+  height: 1px;
+  background: var(--line);
+  display: inline-block;
+}
+.signal-surface .principles-list {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1px;
+  background: var(--line);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+@media (min-width: 48rem) {
+  .signal-surface .principles-list { grid-template-columns: repeat(2, 1fr); }
+}
+.signal-surface .principle {
+  background: var(--paper);
+  padding: 1.75rem;
+  position: relative;
+  transition: background 0.2s ease-out;
+}
+.signal-surface .principle:hover,
+.signal-surface .principle:focus-visible {
+  background: color-mix(in srgb, var(--cobalt) 6%, var(--paper));
+  outline: none;
+}
+.signal-surface .principle-number {
+  font-family: "Newsreader Variable", Georgia, serif;
+  font-size: 1.5rem;
+  color: var(--cobalt);
+  display: block;
+  margin-bottom: 0.5rem;
+}
+.signal-surface .principle h3 {
+  font-family: "Newsreader Variable", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.15rem;
+  margin: 0 0 0.5rem;
+}
+.signal-surface .principle p {
+  color: var(--ink-muted);
+  font-size: 0.92rem;
+  margin: 0;
+}
+.signal-surface .principle-plus {
+  position: absolute;
+  top: 1.25rem;
+  right: 1.25rem;
+  color: var(--line);
+  font-family: ui-monospace, monospace;
+}
+
+/* about section */
+.signal-surface .about-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+}
+@media (min-width: 56rem) {
+  .signal-surface .about-section { grid-template-columns: 18rem 1fr; }
+}
+.signal-surface .about-lede {
+  color: var(--ink-muted);
+  margin: 1rem 0 1.5rem;
+}
+.signal-surface .education-card {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.signal-surface .education-card span {
+  font-family: ui-monospace, monospace;
+  font-size: 0.7rem;
+  color: var(--cobalt);
+  text-transform: uppercase;
+}
+.signal-surface .education-card strong {
+  font-family: "Newsreader Variable", Georgia, serif;
+  font-size: 1.05rem;
+}
+.signal-surface .education-card small {
+  color: var(--ink-muted);
+  font-size: 0.82rem;
+}
+.signal-surface .about-route {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+  margin-bottom: 1.5rem;
+}
+.signal-surface .about-route i {
+  width: 14px;
+  height: 1px;
+  background: var(--line);
+  display: inline-block;
+}
+.signal-surface .timeline {
+  display: flex;
+  flex-direction: column;
+}
+.signal-surface .timeline-item {
+  display: grid;
+  grid-template-columns: auto 6rem 1fr auto;
+  gap: 1rem;
+  align-items: start;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.signal-surface .timeline-item:last-child {
+  border-bottom: none;
+}
+.signal-surface .timeline-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--coral);
+  margin-top: 0.4rem;
+}
+.signal-surface .timeline-period {
+  font-family: ui-monospace, monospace;
+  font-size: 0.75rem;
+  color: var(--ink-muted);
+}
+.signal-surface .timeline-item h3 {
+  font-family: "Newsreader Variable", Georgia, serif;
+  font-weight: 400;
+  font-size: 1.05rem;
+  margin: 0 0 0.2rem;
+}
+.signal-surface .timeline-org {
+  color: var(--cobalt);
+  font-size: 0.82rem;
+  margin: 0 0 0.3rem;
+}
+.signal-surface .timeline-note {
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+  margin: 0;
+}
+.signal-surface .timeline-index {
+  font-family: "Newsreader Variable", Georgia, serif;
+  font-size: 1.1rem;
+  color: var(--line);
+}
+@media (max-width: 40rem) {
+  .signal-surface .timeline-item {
+    grid-template-columns: auto 1fr;
+  }
+  .signal-surface .timeline-index { display: none; }
+}
+
+/* notes section */
+.signal-surface .notes-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+@media (min-width: 56rem) {
+  .signal-surface .notes-section { grid-template-columns: 1fr 20rem; }
+}
+.signal-surface .notes-copy p:last-child {
+  color: var(--ink-muted);
+  margin-top: 1rem;
+  max-width: 32rem;
+}
+.signal-surface .changelog-card {
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--ink);
+  position: relative;
+  transition: border-color 0.2s ease-out;
+}
+.signal-surface .changelog-card:hover {
+  border-color: var(--cobalt);
+}
+.signal-surface .changelog-card strong {
+  font-family: "Newsreader Variable", Georgia, serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+}
+.signal-surface .pulse-dot {
+  position: absolute;
+  top: 1.4rem;
+  right: 1.4rem;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--coral);
+  animation: signal-pulse 2s ease-in-out infinite;
+}
+@keyframes signal-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .signal-surface .pulse-dot { animation: none; }
+}
+
+/* contact */
+.signal-surface .contact-bottom {
+  margin-top: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+.signal-surface .email-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: "Newsreader Variable", Georgia, serif;
+  font-size: clamp(1.3rem, 3vw, 1.8rem);
+  color: var(--cobalt);
+  text-decoration: none;
+  width: fit-content;
+}
+.signal-surface .contact-bottom p {
+  color: var(--ink-muted);
+  font-size: 0.88rem;
+  margin: 0;
+}
+
+/* footer */
+.signal-surface .footer {
+  border-top: 1px solid var(--line);
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+@media (min-width: 48rem) {
+  .signal-surface .footer {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+.signal-surface .footer-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: var(--ink);
+  font-family: ui-monospace, monospace;
+  font-size: 0.85rem;
+}
+.signal-surface .footer-brand img {
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+}
+.signal-surface .footer p {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+  margin: 0;
+}
+.signal-surface .footer-links {
+  display: flex;
+  gap: 1.25rem;
+}
+.signal-surface .footer-links a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: 0.82rem;
+  color: var(--ink-muted);
+  text-decoration: none;
+}
+.signal-surface .footer-links a:hover {
+  color: var(--cobalt);
+}
+
+/* scroll-reveal (mirrors the site's existing data-reveal pattern, scoped
+   here since this page is a separate island) */
+.signal-surface .reveal-up {
+  animation: signal-reveal 0.6s ease-out both;
+}
+.signal-surface .delay-1 { animation-delay: 0.05s; }
+.signal-surface .delay-2 { animation-delay: 0.12s; }
+.signal-surface .delay-3 { animation-delay: 0.2s; }
+.signal-surface .delay-4 { animation-delay: 0.3s; }
+@keyframes signal-reveal {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .signal-surface .reveal-up {
+    animation: none;
+  }
+  .signal-surface .orbit-a,
+  .signal-surface .orbit-b,
+  .signal-surface .art-dot {
+    transition: none;
+  }
+}

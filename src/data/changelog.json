@@ -1,5 +1,11 @@
 [
   {
+    "version": "0.18.0",
+    "date": "2026-08-08",
+    "title": "a Signal & Surface preview, at its own URL",
+    "notes": "Sahil provided a complete React component from another tool and asked for it deployed exactly as given. Built as a genuine preview at /signal-surface/ — not wired in as the actual Home — since the code as given had no stylesheet and pointed to image assets this project can't reach. Wrote the missing stylesheet from scratch (see ADR-005), substituted two lucide-react brand icons that no longer exist in the installed version, and used abstract placeholder art in place of the real image exports. Real cost, stated plainly: this page ships ~68KB of gzipped JavaScript (React + the component) against a sitewide budget that was previously near zero. lighthouserc.json now explicitly tests this URL so CI gives an honest answer, not a green check that never looked at it."
+  },
+  {
     "version": "0.17.0",
     "date": "2026-08-08",
     "title": "an interactive project switcher on Work",
