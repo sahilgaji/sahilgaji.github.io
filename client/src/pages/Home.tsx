@@ -6,17 +6,18 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ScrollProgress } from "../components/ScrollProgress";
 import { ProjectCaseModal } from "../components/ProjectCaseModal";
-import { AnimatedBackground } from "../components/AnimatedBackground";
+import { Dock, DockIcon, DockItem, DockLabel } from "../components/Dock";
 import {
   ArrowDown,
   ArrowUpRight,
+  Briefcase,
   Check,
   Github,
   Linkedin,
   Mail,
-  Menu,
   MoveRight,
-  X,
+  Settings2,
+  User,
 } from "lucide-react";
 
 const ASSETS = {
@@ -28,10 +29,10 @@ const ASSETS = {
 };
 
 const navItems = [
-  { id: "work", label: "Work" },
-  { id: "method", label: "How I work" },
-  { id: "about", label: "About" },
-  { id: "contact", label: "Contact" },
+  { id: "work", label: "Work", icon: Briefcase },
+  { id: "method", label: "How I work", icon: Settings2 },
+  { id: "about", label: "About", icon: User },
+  { id: "contact", label: "Contact", icon: Mail },
 ];
 
 const projects = [
@@ -206,7 +207,6 @@ const sectionStatus = {
 export default function Home() {
   const [activeProject, setActiveProject] = useState(0);
   const [activeSection, setActiveSection] = useState<keyof typeof sectionStatus>("top");
-  const [menuOpen, setMenuOpen] = useState(false);
   const [showHumanVersion, setShowHumanVersion] = useState(false);
   const [pointer, setPointer] = useState({ x: 50, y: 50 });
   const [caseModalProject, setCaseModalProject] = useState<Project | null>(null);
@@ -257,32 +257,29 @@ export default function Home() {
           <img src={ASSETS.logo} alt="Sahil Gaji signal mark" className="brand-mark" />
           <span className="brand-name">Sahil Gaji</span>
         </a>
-        <nav className="desktop-nav" aria-label="Primary navigation">
-          <AnimatedBackground
-            className="nav-highlight"
-            transition={{ type: "spring", bounce: 0.2, duration: 0.3 }}
-            enableHover
-          >
-            {navItems.map((item) => (
-              <a href={`#${item.id}`} data-id={item.id} key={item.id} className={activeSection === item.id ? "nav-link is-active" : "nav-link"}>{item.label}</a>
-            ))}
-          </AnimatedBackground>
-        </nav>
         <a className="cv-link" href="https://sahilgaji.github.io/cv/" target="_blank" rel="noreferrer">CV <ArrowUpRight size={15} strokeWidth={2.1} /></a>
-        <button className="menu-toggle" onClick={() => setMenuOpen((open) => !open)} aria-label={menuOpen ? "Close navigation" : "Open navigation"} aria-expanded={menuOpen}>
-          {menuOpen ? <X size={21} /> : <Menu size={21} />}
-        </button>
       </header>
 
-      <div className={menuOpen ? "mobile-menu is-open" : "mobile-menu"} aria-hidden={!menuOpen}>
-        <div className="mobile-menu-inner">
-          <span className="eyebrow">Navigate</span>
-          {navItems.map((item) => (
-            <a href={`#${item.id}`} key={item.id} onClick={() => setMenuOpen(false)}><span>{item.label}</span><MoveRight size={23} /></a>
-          ))}
-          <a href="https://sahilgaji.github.io/cv/" target="_blank" rel="noreferrer" onClick={() => setMenuOpen(false)}><span>Open CV</span><ArrowUpRight size={23} /></a>
-        </div>
-      </div>
+      <nav className="dock-nav" aria-label="Primary navigation">
+        <Dock className="dock-panel-signal">
+          {navItems.map((item) => {
+            const Icon = item.icon;
+            return (
+              <DockItem
+                key={item.id}
+                href={`#${item.id}`}
+                aria-label={item.label}
+                className={activeSection === item.id ? "dock-item-signal is-active" : "dock-item-signal"}
+              >
+                <DockLabel>{item.label}</DockLabel>
+                <DockIcon>
+                  <Icon className="dock-icon-svg" />
+                </DockIcon>
+              </DockItem>
+            );
+          })}
+        </Dock>
+      </nav>
 
       <main id="top">
         <section className="hero section-frame" onPointerMove={handlePointerMove}>
