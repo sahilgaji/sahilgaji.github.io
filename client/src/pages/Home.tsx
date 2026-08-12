@@ -6,18 +6,14 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import { ScrollProgress } from "../components/ScrollProgress";
 import { ProjectCaseModal } from "../components/ProjectCaseModal";
-import { Dock, DockIcon, DockItem, DockLabel } from "../components/Dock";
 import {
   ArrowDown,
   ArrowUpRight,
-  Briefcase,
   Check,
   Github,
   Linkedin,
   Mail,
   MoveRight,
-  Settings2,
-  User,
 } from "lucide-react";
 
 const ASSETS = {
@@ -29,10 +25,10 @@ const ASSETS = {
 };
 
 const navItems = [
-  { id: "work", label: "Work", icon: Briefcase },
-  { id: "method", label: "How I work", icon: Settings2 },
-  { id: "about", label: "About", icon: User },
-  { id: "contact", label: "Contact", icon: Mail },
+  { id: "work", label: "Engagements" },
+  { id: "method", label: "Approach" },
+  { id: "about", label: "Profile" },
+  { id: "contact", label: "Consultation" },
 ];
 
 const projects = [
@@ -291,24 +287,17 @@ export default function Home() {
       </header>
 
       <nav className="dock-nav" aria-label="Primary navigation">
-        <Dock className="dock-panel-signal">
-          {navItems.map((item) => {
-            const Icon = item.icon;
-            return (
-              <DockItem
-                key={item.id}
-                href={`#${item.id}`}
-                aria-label={item.label}
-                className={activeSection === item.id ? "dock-item-signal is-active" : "dock-item-signal"}
-              >
-                <DockLabel>{item.label}</DockLabel>
-                <DockIcon>
-                  <Icon className="dock-icon-svg" />
-                </DockIcon>
-              </DockItem>
-            );
-          })}
-        </Dock>
+        <div className="dock-panel">
+          {navItems.map((item) => (
+            <a
+              key={item.id}
+              href={`#${item.id}`}
+              className={activeSection === item.id ? "dock-pill is-active" : "dock-pill"}
+            >
+              {item.label}
+            </a>
+          ))}
+        </div>
       </nav>
 
       <main id="top">
