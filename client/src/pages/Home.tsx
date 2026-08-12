@@ -3,7 +3,9 @@
  * cobalt signals, dry evidence-led humour, and human-readable technical credibility.
  */
 import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import { ScrollProgress } from "../components/ScrollProgress";
+import { ProjectCaseModal } from "../components/ProjectCaseModal";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -48,6 +50,21 @@ const projects = [
       "Connects Python, Claude API, GitHub Actions, SQLite, Google Sheets, Telegram, and a human-review interface into one operating loop.",
       "Reduced daily job-search effort from about two hours to under ten minutes; per-application processing is under thirty minutes.",
     ],
+    period: "Personal project · 2025 — now",
+    pullQuote: "The system's most important feature is that it refuses to apply.",
+    metrics: [
+      { value: "< 30 min", label: "per application" },
+      { value: "2h → 10min", label: "daily search effort" },
+      { value: "≥ 75%", label: "ATS quality gate" },
+      { value: "~ 9 in 10", label: "go to the target track" },
+    ],
+    story: [
+      "I moved to Germany for a Master's in Digital Transformation Management, and finished it into a job market where my own profile worked against me: six years, two countries, six domains, none of them individually enough. Job applications felt like a black box — no feedback loop, no way to know which lever actually mattered.",
+      "For a while I believed the fix was more effort: more applications, faster turnaround, a slightly sharper cover letter each time. Months of quiet rejection later, the real lesson landed — I was optimizing the wrong thing.",
+      "So I stopped trying to apply harder and built a system to apply better: one that screens before it writes, refuses before it generates, and never ships anything I haven't reviewed by hand.",
+    ],
+    retro:
+      "If I were starting again, I would spend less time trying to perfect the automation and more time validating whether each improvement actually increased interview quality. Early on, I enjoyed building the system so much that I sometimes optimized the process before proving it solved the right problem. The biggest lesson was that better decisions matter more than more automation.",
   },
   {
     number: "02",
@@ -65,6 +82,21 @@ const projects = [
       "Trained 150+ managers and team leads to make the new working system stick.",
       "Migrated documentation to Confluence and Docupedia, cutting document retrieval time by roughly 30%.",
     ],
+    period: "Robert Bosch GmbH · Mar–Aug 2024",
+    pullQuote: "Configuring the tool was the easy fifth of the work.",
+    metrics: [
+      { value: "150+", label: "managers & team leads trained" },
+      { value: "3", label: "cross-functional projects standardised" },
+      { value: "~ 15%", label: "productivity improvement" },
+      { value: "~ 30%", label: "faster document retrieval" },
+    ],
+    story: [
+      "Six months as an intern on Bosch's Project Management Digitalization team, supporting global supply chain digitalization work across international teams. The problem wasn't a lack of tools — it was too many of them, used inconsistently: OPLs, roadmaps, and risk tracking scattered across spreadsheets and whatever format each project lead preferred.",
+      "Standardizing that onto Jira, for three cross-functional projects, took a few weeks. That was the easy part. The other four-fifths was training sessions, documentation people would come back to, and a lot of one-on-one troubleshooting for managers who'd been running things their own way for years.",
+      "The Confluence migration was the same problem from a different angle — moving documentation off Excel and an internal Wiki only pays off once people trust the new place enough to stop keeping their own copies. Once it stuck, retrieval time dropped by roughly 30%.",
+    ],
+    retro:
+      "Looking back, I would have asked for feedback earlier and more frequently from the people using the tools, rather than assuming the first version was already intuitive. That experience reinforced that digital transformation is as much about people as it is about technology.",
   },
   {
     number: "03",
@@ -82,8 +114,25 @@ const projects = [
       "Secured ₹600,000 in funding and helped drive a roughly 40% increase in online orders through targeted digital marketing.",
       "Handed ownership to the remaining partners after six months; the business continued operating.",
     ],
+    period: "Club House · Jul–Dec 2020",
+    pullQuote: "The business kept running after I left.",
+    metrics: [
+      { value: "6 months", label: "part-time, alongside a full-time job" },
+      { value: "~ 40%", label: "increase in online orders" },
+      { value: "₹600,000", label: "funding secured" },
+      { value: "~ 20%", label: "increase in business valuation" },
+    ],
+    story: [
+      "A small food-and-beverage startup, co-founded with two friends alongside a full-time job. Breakfast and all-day snacks, out of Pune. Nothing glamorous — the goal was to keep the books straight, keep inventory from walking out the door, and keep customers coming back, on evenings and weekends around a day job.",
+      "I built Excel VBA tools for invoicing, ingredient and stock tracking, and financial forecasting; ran the social media campaigns that grew online orders by roughly 40%; and negotiated the vendor and investor relationships that brought in ₹600,000 in funding.",
+      "After six months, ownership transitioned to my two co-founders. That wasn't the plan failing — a full-time job and a part-time startup were never going to both get the time they needed indefinitely. What mattered was whether the business could survive the handover — and it did.",
+    ],
+    retro:
+      "If I could do it again, I would invest more time in documenting operational processes from the beginning instead of creating them reactively as the business grew. That experience taught me that sustainable operations are built before they become necessary.",
   },
 ];
+
+export type Project = (typeof projects)[number];
 
 const principles = [
   {
@@ -159,6 +208,7 @@ export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [showHumanVersion, setShowHumanVersion] = useState(false);
   const [pointer, setPointer] = useState({ x: 50, y: 50 });
+  const [caseModalProject, setCaseModalProject] = useState<Project | null>(null);
   const project = projects[activeProject];
   const status = sectionStatus[activeSection];
 
@@ -275,7 +325,7 @@ export default function Home() {
             </div>
             <article className="project-viewer" key={project.title}>
               <div className="viewer-route" aria-label="Project system stages"><span>INTAKE</span><i /><span>BUILD</span><i /><span>ADOPT</span><i /><span>HANDOVER</span></div>
-              <div className="viewer-image-wrap"><img src={project.image} alt={`Conceptual visual for ${project.title}`} className="viewer-image" /><span className="viewer-index">{project.number}</span><img src={ASSETS.logo} alt="" className="viewer-brand-mark" /></div>
+              <motion.div layoutId={`case-image-${project.number}`} className="viewer-image-wrap"><img src={project.image} alt={`Conceptual visual for ${project.title}`} className="viewer-image" /><span className="viewer-index">{project.number}</span><img src={ASSETS.logo} alt="" className="viewer-brand-mark" /></motion.div>
               <div className="viewer-body">
                 <div className="viewer-controls">
                   <p className="case-diagnosis">{project.diagnosis}</p>
@@ -284,7 +334,7 @@ export default function Home() {
                 <div className="tag-list">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
                 <p className={showHumanVersion ? "viewer-statement is-human" : "viewer-statement"}>{showHumanVersion ? project.humanVersion : project.statement}</p>
                 <ul>{project.details.map((detail) => <li key={detail}><Check size={15} strokeWidth={2.6} />{detail}</li>)}</ul>
-                <a href="https://sahilgaji.github.io/work/" target="_blank" rel="noreferrer" className="text-link">Read the full case archive <ArrowUpRight size={16} /></a>
+                <button type="button" className="text-link" onClick={() => setCaseModalProject(project)}>Read the full case archive <MoveRight size={16} /></button>
               </div>
             </article>
           </div>
@@ -328,6 +378,8 @@ export default function Home() {
         <p>© 2026 Sahil Gaji · Revision 01 · Built to outlast the handover. · <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a></p>
         <div className="footer-links"><a href="https://www.linkedin.com/in/sahil-gaji/" target="_blank" rel="noreferrer"><Linkedin size={16} /> LinkedIn</a><a href="https://github.com/sahilgaji/sahilgaji.github.io" target="_blank" rel="noreferrer"><Github size={16} /> GitHub</a><a href="mailto:sahil.gaji@outlook.com"><Mail size={16} /> Email</a></div>
       </footer>
+
+      <ProjectCaseModal project={caseModalProject} onClose={() => setCaseModalProject(null)} />
     </div>
   );
 }
