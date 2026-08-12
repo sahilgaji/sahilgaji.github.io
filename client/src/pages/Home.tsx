@@ -7,13 +7,11 @@ import { motion } from "framer-motion";
 import { ScrollProgress } from "../components/ScrollProgress";
 import { ProjectCaseModal } from "../components/ProjectCaseModal";
 import { TextLoop } from "../components/TextLoop";
+import { ThemeToggle } from "../components/ThemeToggle";
 import {
   ArrowDown,
   ArrowUpRight,
   Check,
-  Github,
-  Linkedin,
-  Mail,
   MoveRight,
 } from "lucide-react";
 
@@ -32,7 +30,7 @@ const navItems = [
   { id: "contact", label: "Consultation" },
 ];
 
-const HEADLINE_VERBS = ["build", "plan", "design", "implement", "optimise"];
+const HEADLINE_VERBS = ["plan", "optimise", "build"];
 
 const projects = [
   {
@@ -287,7 +285,10 @@ export default function Home() {
           <img src={ASSETS.logo} alt="Sahil Gaji signal mark" className="brand-mark" />
           <span className="brand-name">Sahil Gaji</span>
         </a>
-        <a className="cv-link" href="https://sahilgaji.github.io/cv/" target="_blank" rel="noreferrer">CV <ArrowUpRight size={15} strokeWidth={2.1} /></a>
+        <div className="topbar-actions">
+          <a className="cv-link" href="https://sahilgaji.github.io/cv/" target="_blank" rel="noreferrer">CV <ArrowUpRight size={15} strokeWidth={2.1} /></a>
+          <ThemeToggle />
+        </div>
       </header>
 
       <nav className="dock-nav" aria-label="Primary navigation">
@@ -323,7 +324,12 @@ export default function Home() {
           </div>
           <div className="hero-copy">
             <p className="hero-kicker reveal-up delay-1">Sahil Gaji / Boot sequence</p>
-            <h1 className="reveal-up delay-2">I <TextLoop words={HEADLINE_VERBS} /> systems that <em>keep working</em> even when I leave the room.</h1>
+            <h1 className="reveal-up delay-2 hero-headline">
+              <span className="hero-headline-line1">I <TextLoop words={HEADLINE_VERBS} /> systems</span>
+              that <em>keep working</em>
+              <br />even when I
+              <br />leave the room.
+            </h1>
             <div className="hero-route reveal-up delay-3" aria-hidden="true"><span>Observe</span><i /><span>Build</span><i /><span>Adopt</span></div>
             <div className="hero-summary reveal-up delay-3">
               <p>Mechanical engineer by training. Project-management and digital-transformation person by choice. I turn messy work into clear, adopted systems—partly to improve it, partly to stop it messaging people at 17:58.</p>
@@ -407,14 +413,22 @@ export default function Home() {
         <section id="contact" className="contact-section section-frame section-anchor">
           <div className="contact-artifact" aria-hidden="true"><span>CHANNEL / 05</span><i /><i /></div>
           <p className="eyebrow">05 / Talk to the operator</p><h2>If the workflow relies on<br /><em>one spreadsheet and hope,</em><br />we should probably talk.</h2>
-          <div className="contact-bottom"><a className="email-link" href="mailto:sahil.gaji@outlook.com">sahil.gaji@outlook.com <ArrowUpRight size={22} /></a><p>English (business fluent) · German (B1) · Hindi &amp; Marathi (native)</p></div>
+          <div className="contact-bottom">
+            <div className="contact-details">
+              <a className="contact-detail" href="mailto:sahil.gaji@outlook.com"><span className="contact-detail-label">Email</span><span className="contact-detail-value">sahil.gaji@outlook.com <ArrowUpRight size={16} /></span></a>
+              <a className="contact-detail" href="mailto:sahil.s.gaji@gmail.com"><span className="contact-detail-label">Email</span><span className="contact-detail-value">sahil.s.gaji@gmail.com <ArrowUpRight size={16} /></span></a>
+              <a className="contact-detail" href="https://www.linkedin.com/in/sahil-gaji/" target="_blank" rel="noreferrer"><span className="contact-detail-label">LinkedIn</span><span className="contact-detail-value">in/sahil-gaji <ArrowUpRight size={16} /></span></a>
+              <a className="contact-detail" href="https://github.com/sahilgaji/sahilgaji.github.io" target="_blank" rel="noreferrer"><span className="contact-detail-label">GitHub</span><span className="contact-detail-value">sahilgaji <ArrowUpRight size={16} /></span></a>
+              <a className="contact-detail" href="https://topmate.io/sahil_gaji" target="_blank" rel="noreferrer"><span className="contact-detail-label">Topmate</span><span className="contact-detail-value">sahil_gaji <ArrowUpRight size={16} /></span></a>
+            </div>
+            <p className="contact-languages">English (business fluent) · German (B1) · Hindi &amp; Marathi (native)</p>
+          </div>
         </section>
       </main>
 
       <footer className="footer section-frame">
         <a href="#top" className="footer-brand"><img src={ASSETS.logo} alt="" /> <span>SG / Operator’s manual</span></a>
         <p>© 2026 Sahil Gaji · Revision 01 · Built to outlast the handover. · <a href="/impressum">Impressum</a> · <a href="/datenschutz">Datenschutz</a></p>
-        <div className="footer-links"><a href="https://www.linkedin.com/in/sahil-gaji/" target="_blank" rel="noreferrer"><Linkedin size={16} /> LinkedIn</a><a href="https://github.com/sahilgaji/sahilgaji.github.io" target="_blank" rel="noreferrer"><Github size={16} /> GitHub</a><a href="mailto:sahil.gaji@outlook.com"><Mail size={16} /> Email</a></div>
       </footer>
 
       <ProjectCaseModal project={caseModalProject} onClose={() => setCaseModalProject(null)} />

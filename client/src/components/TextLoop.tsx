@@ -8,9 +8,9 @@ type TextLoopProps = {
 };
 
 const DEFAULT_VARIANTS: Variants = {
-  initial: { y: 20, rotateX: 90, opacity: 0, filter: "blur(4px)" },
-  animate: { y: 0, rotateX: 0, opacity: 1, filter: "blur(0px)" },
-  exit: { y: -20, rotateX: -90, opacity: 0, filter: "blur(4px)" },
+  initial: { y: 20, rotateX: 90, opacity: 0 },
+  animate: { y: 0, rotateX: 0, opacity: 1 },
+  exit: { y: -20, rotateX: -90, opacity: 0 },
 };
 
 const DEFAULT_TRANSITION: Transition = { type: "spring", stiffness: 900, damping: 80, mass: 10 };

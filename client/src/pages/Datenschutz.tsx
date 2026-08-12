@@ -54,7 +54,7 @@ export default function Datenschutz() {
         .legal-page h1 { font-size: 2rem; font-weight: 500; margin: 1.5rem 0 0.4rem; }
         .legal-page h2 { font-size: 1.05rem; font-weight: 500; margin: 2rem 0 0.4rem; }
         .legal-page p { line-height: 1.6; margin: 0 0 0.6rem; }
-        .legal-draft { font-family: var(--font-mono); font-size: 0.8rem; color: #68645d; }
+        .legal-draft { font-family: var(--font-mono); font-size: 0.8rem; color: var(--text-muted); }
       `}</style>
     </div>
   );
