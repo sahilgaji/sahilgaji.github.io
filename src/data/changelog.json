@@ -1,5 +1,11 @@
 [
   {
+    "version": "0.17.0",
+    "date": "2026-08-08",
+    "title": "an interactive project switcher on Work",
+    "notes": "The three case-study cards became a real switcher: click a project on the left, its stage strip, statement, and details update on the right. Zero JavaScript — driven entirely by hidden radio inputs and CSS :has(), the same technique already used for hover states elsewhere on the site. Each project now carries a short stage strip (SCREEN → GENERATE → REVIEW → SHIP for the Career Operating System, matching its real pipeline; similar honest summaries for Bosch and Club House). Full case studies stay on their own pages — this is a richer preview, not a replacement."
+  },
+  {
     "version": "0.16.0",
     "date": "2026-08-08",
     "title": "a module grid on Home",
