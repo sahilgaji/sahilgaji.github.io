@@ -25,9 +25,9 @@ const ASSETS = {
 };
 
 const navItems = [
-  { id: "work", label: "Engagements" },
+  { id: "work", label: "Projects" },
   { id: "method", label: "Approach" },
-  { id: "about", label: "Profile" },
+  { id: "about", label: "Journey" },
   { id: "contact", label: "Consultation" },
 ];
 
