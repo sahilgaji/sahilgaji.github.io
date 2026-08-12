@@ -3,6 +3,7 @@
  * cobalt signals, dry evidence-led humour, and human-readable technical credibility.
  */
 import { useEffect, useState } from "react";
+import { ScrollProgress } from "../components/ScrollProgress";
 import {
   ArrowDown,
   ArrowUpRight,
@@ -196,7 +197,7 @@ export default function Home() {
       <div className="signal-rail" aria-hidden="true">
         <img src={ASSETS.logo} alt="" className="rail-mark" />
         <span className="rail-label">SG / 2026</span>
-        <span className="rail-line"><span className={`rail-progress rail-${activeSection}`} /></span>
+        <span className="rail-line"><ScrollProgress className="rail-progress" /></span>
         <span className="rail-label rail-label-bottom">{status}</span>
       </div>
 
