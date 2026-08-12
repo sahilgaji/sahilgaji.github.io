@@ -177,6 +177,12 @@ const timeline = [
     note: "Designed the full lifecycle: architecture, prompts, quality controls, deployment, iteration, and the occasional reminder that a human should still look at it.",
   },
   {
+    period: "2022 — 2024",
+    role: "M.Sc. Digital Transformation Management",
+    org: "SRH Berlin University of Applied Sciences",
+    note: "Business analytics, digital strategy, and change management, graded very good (2.0) — with two internships running alongside it.",
+  },
+  {
     period: "2024",
     role: "Intern, Project Management Digitalization",
     org: "Robert Bosch GmbH · Reutlingen",
@@ -189,10 +195,34 @@ const timeline = [
     note: "Renewable-energy feasibility research and Excel VBA forecasting automation, saving about five person-days per month.",
   },
   {
-    period: "2019 — 2022",
-    role: "Operations, quality, research & founding",
-    org: "Club House · KEIHIN FIE · GirnarSoft · Makerspace",
-    note: "A startup, quality dashboards, automotive research, and hands-on prototyping. Different rooms; consistently the person reorganising the process.",
+    period: "2020 — 2022",
+    role: "Junior Market Correspondent",
+    org: "GirnarSoft · Jaipur",
+    note: "Automotive market research and competitive analysis for ZigWheels — the reviews behind someone else's car purchase.",
+  },
+  {
+    period: "Jul — Dec 2020",
+    role: "Co-Founder, Club House",
+    org: "Part-time side venture · Pune",
+    note: "A food-and-beverage startup run alongside a full-time job. Handed to my co-founders after six months; it kept running.",
+  },
+  {
+    period: "2019 — 2020",
+    role: "Quality Assurance Engineer",
+    org: "KEIHIN FIE · Chakan",
+    note: "Die-casting, machining, and assembly quality control. A Power BI reporting push cut defects by roughly 15%.",
+  },
+  {
+    period: "May — Oct 2019",
+    role: "Design & Development Engineer",
+    org: "Makerspace Creators' Catalyst · Pune",
+    note: "Client-facing product development with CAD and rapid prototyping — 3D printing and laser cutting, start to finish.",
+  },
+  {
+    period: "2015 — 2019",
+    role: "B.E. Mechanical Engineering",
+    org: "Savitribai Phule Pune University",
+    note: "Where the reorganising instinct started: systems engineering, lean manufacturing, and a lot of CAD.",
   },
 ];
 
@@ -354,13 +384,13 @@ export default function Home() {
 
         <section id="about" className="about-section section-frame section-anchor">
           <div className="about-aside">
-            <p className="eyebrow">03 / Patch notes: 2019 — now</p><h2>Many contexts.<br /><em>Same impulse.</em></h2>
+            <p className="eyebrow">03 / Patch notes: 2015 — now</p><h2>Many contexts.<br /><em>Same impulse.</em></h2>
             <p className="about-lede">Mechanical systems first. Then production systems. Then people systems—which have fewer bolts and considerably more opinions.</p>
             <div className="education-card"><span>Education</span><strong>M.Sc. Digital Transformation Management</strong><small>SRH Berlin · “very good” · German B1</small></div><div className="about-artifact" aria-hidden="true"><span>FIELD NOTE / 03</span><i /><b /></div>
           </div>
           <div className="timeline-shell">
             <div className="about-route" aria-hidden="true"><span>MECHANICAL</span><i /><span>DIGITAL</span><i /><span>DURABLE</span></div>
-            <div className="timeline">{timeline.map((item, index) => <article className="timeline-item" key={item.period + item.role}><span className="timeline-dot" /><span className="timeline-period">{item.period}</span><div><h3>{item.role}</h3><p className="timeline-org">{item.org}</p><p className="timeline-note">{item.note}</p></div><span className="timeline-index">0{index + 1}</span></article>)}</div>
+            <div className="timeline">{timeline.map((item, index) => <article className="timeline-item" key={item.period + item.role}><span className="timeline-dot" /><span className="timeline-period">{item.period}</span><div><h3>{item.role}</h3><p className="timeline-org">{item.org}</p><p className="timeline-note">{item.note}</p></div><span className="timeline-index">{String(index + 1).padStart(2, "0")}</span></article>)}</div>
           </div>
         </section>
 
