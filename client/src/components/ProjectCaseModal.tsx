@@ -3,6 +3,7 @@ import { X } from "lucide-react";
 import { useEffect, useRef } from "react";
 import type { Project } from "../pages/Home";
 import { pauseSmoothScroll, resumeSmoothScroll } from "../lib/lenis";
+import { useLanguage } from "../contexts/LanguageContext";
 
 type ProjectCaseModalProps = {
   project: Project | null;
@@ -12,6 +13,7 @@ type ProjectCaseModalProps = {
 const EASE = [0.23, 1, 0.32, 1] as const;
 
 export function ProjectCaseModal({ project, onClose }: ProjectCaseModalProps) {
+  const { content } = useLanguage();
   const closeRef = useRef<HTMLButtonElement>(null);
 
   useEffect(() => {
@@ -57,7 +59,7 @@ export function ProjectCaseModal({ project, onClose }: ProjectCaseModalProps) {
               <span className="case-modal-index">{project.number}</span>
             </motion.div>
 
-            <button type="button" className="case-modal-close" onClick={onClose} aria-label="Close case study" ref={closeRef}>
+            <button type="button" className="case-modal-close" onClick={onClose} aria-label={content.work.closeAria} ref={closeRef}>
               <X size={20} />
             </button>
 
@@ -87,7 +89,7 @@ export function ProjectCaseModal({ project, onClose }: ProjectCaseModalProps) {
               </div>
 
               <div className="case-modal-retro">
-                <p className="case-modal-retro-label">What I'd do differently</p>
+                <p className="case-modal-retro-label">{content.work.retroLabel}</p>
                 <p>{project.retro}</p>
               </div>
             </motion.div>

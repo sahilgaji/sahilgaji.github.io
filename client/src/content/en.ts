@@ -1,0 +1,277 @@
+import type { SiteContent } from "./types";
+
+export const en: SiteContent = {
+  nav: { work: "Projects", method: "Approach", about: "Journey", contact: "Consultation" },
+  headlineVerbs: ["build", "plan", "optimise"],
+  hero: {
+    eyebrow: "Independent systems builder · operator’s manual, rev. 01",
+    location: "Hamburg, DE",
+    kicker: "Sahil Gaji / Who am I?",
+    headlineLine1Prefix: "I",
+    headlineWord: "systems",
+    headlineLine2Prefix: "that",
+    headlineLine2Em: "keep working",
+    headlineLine3: "even when",
+    headlineLine4: "I leave the room.",
+    routeSteps: ["Observe", "Build", "Adopt"],
+    summary:
+      "Mechanical engineer by training. Project-management and digital-transformation person by choice. I turn messy work into clear, adopted systems—partly to improve it, partly to stop it messaging people at 17:58.",
+    exploreAria: "Explore selected work",
+    artCaption: "Scroll to inspect",
+    statusLine: "OPEN TO: JUNIOR PM, IT CONSULTANT, PROCESS & DIGITAL TRANSFORMATION CONVERSATIONS",
+    startConversation: "Start a conversation",
+  },
+  brandTopAria: "Sahil Gaji — top of page",
+  brandBottomLabel: "SG / Operator’s manual",
+  logoAlt: "Sahil Gaji signal mark",
+  cvLabel: "CV",
+  metrics: [
+    { value: "5+", label: "live job sources routed" },
+    { value: "<10 min", label: "daily system supervision" },
+    { value: "150+", label: "people trained" },
+    { value: "~30%", label: "faster document retrieval" },
+  ],
+  work: {
+    eyebrow: "01 / My Work",
+    headingLine1: "Things I made",
+    headingEm: "less chaotic.",
+    intro: "No cinematic whiteboards. Just what was built, what changed, and whether the system survived handover.",
+    selectAria: "Select a case study",
+    stageSteps: ["INTAKE", "BUILD", "ADOPT", "HANDOVER"],
+    stageAria: "Project system stages",
+    technicalView: "Technical view",
+    humanTranslation: "Human translation",
+    readFullCase: "Read the full case archive",
+    imageAlt: (title) => `Conceptual visual for ${title}`,
+    closeAria: "Close case study",
+    retroLabel: "What I'd do differently",
+  },
+  projects: [
+    {
+      number: "01",
+      title: "Career Operating System",
+      subtitle: "A very picky robot, with human supervision.",
+      tags: ["Python", "Claude API", "GitHub Actions", "Quality gates"],
+      diagnosis: "Diagnosis: repetitive work detected. A configuration-driven pipeline followed.",
+      statement:
+        "A modular AI-powered application system that turns unstructured postings into evidence-checked, ATS-ready application packages through configurable logic, confidence scoring, and quality gates.",
+      humanVersion:
+        "My job search stopped being a two-hour daily ritual. The repetitive work is handled first; I spend my time on the roles that deserve actual judgement.",
+      details: [
+        "Uses a single YAML source of truth, five professional personas, eligibility gates, and APPLY / STRETCH / REJECT recommendations.",
+        "Connects Python, Claude API, GitHub Actions, SQLite, Google Sheets, Telegram, and a human-review interface into one operating loop.",
+        "Reduced daily job-search effort from about two hours to under ten minutes; per-application processing is under thirty minutes.",
+      ],
+      period: "Personal project · 2025 — now",
+      pullQuote: "The system's most important feature is that it refuses to apply.",
+      metrics: [
+        { value: "< 30 min", label: "per application" },
+        { value: "2h → 10min", label: "daily search effort" },
+        { value: "≥ 75%", label: "ATS quality gate" },
+        { value: "~ 9 in 10", label: "go to the target track" },
+      ],
+      story: [
+        "I moved to Germany for a Master's in Digital Transformation Management, and finished it into a job market where my own profile worked against me: six years, two countries, six domains, none of them individually enough. Job applications felt like a black box — no feedback loop, no way to know which lever actually mattered.",
+        "For a while I believed the fix was more effort: more applications, faster turnaround, a slightly sharper cover letter each time. Months of quiet rejection later, the real lesson landed — I was optimizing the wrong thing.",
+        "So I stopped trying to apply harder and built a system to apply better: one that screens before it writes, refuses before it generates, and never ships anything I haven't reviewed by hand.",
+      ],
+      retro:
+        "If I were starting again, I would spend less time trying to perfect the automation and more time validating whether each improvement actually increased interview quality. Early on, I enjoyed building the system so much that I sometimes optimized the process before proving it solved the right problem. The biggest lesson was that better decisions matter more than more automation.",
+    },
+    {
+      number: "02",
+      title: "Robert Bosch GmbH",
+      subtitle: "Because a new tool without adoption is expensive optimism.",
+      tags: ["Jira", "PMO", "Change adoption"],
+      diagnosis: "Diagnosis: another tool entered the room. Adoption mattered more than configuration.",
+      statement:
+        "At Bosch, the tool configuration was only the first fifth of the work. The real project was making a new system useful enough to be adopted.",
+      humanVersion:
+        "I helped teams trade scattered trackers for a shared way of working. The difficult part was not Jira; it was earning room in 150+ people’s already busy days.",
+      details: [
+        "Standardised Jira workflows and PMO reporting across three cross-functional projects, improving operational productivity by about 15%.",
+        "Trained 150+ managers and team leads to make the new working system stick.",
+        "Migrated documentation to Confluence and Docupedia, cutting document retrieval time by roughly 30%.",
+      ],
+      period: "Robert Bosch GmbH · Mar–Aug 2024",
+      pullQuote: "Configuring the tool was the easy fifth of the work.",
+      metrics: [
+        { value: "150+", label: "managers & team leads trained" },
+        { value: "3", label: "cross-functional projects standardised" },
+        { value: "~ 15%", label: "productivity improvement" },
+        { value: "~ 30%", label: "faster document retrieval" },
+      ],
+      story: [
+        "Six months as an intern on Bosch's Project Management Digitalization team, supporting global supply chain digitalization work across international teams. The problem wasn't a lack of tools — it was too many of them, used inconsistently: OPLs, roadmaps, and risk tracking scattered across spreadsheets and whatever format each project lead preferred.",
+        "Standardizing that onto Jira, for three cross-functional projects, took a few weeks. That was the easy part. The other four-fifths was training sessions, documentation people would come back to, and a lot of one-on-one troubleshooting for managers who'd been running things their own way for years.",
+        "The Confluence migration was the same problem from a different angle — moving documentation off Excel and an internal Wiki only pays off once people trust the new place enough to stop keeping their own copies. Once it stuck, retrieval time dropped by roughly 30%.",
+      ],
+      retro:
+        "Looking back, I would have asked for feedback earlier and more frequently from the people using the tools, rather than assuming the first version was already intuitive. That experience reinforced that digital transformation is as much about people as it is about technology.",
+    },
+    {
+      number: "03",
+      title: "Club House",
+      subtitle: "Founders should not be the workflow.",
+      tags: ["Operations", "VBA", "Founding"],
+      diagnosis: "Diagnosis: too much knowledge lived inside the founders. Documentation was prescribed.",
+      statement:
+        "A food-and-beverage startup co-founded alongside a full-time job. The useful test was whether the business could continue once its systems had a different owner.",
+      humanVersion:
+        "I helped start a food business, automated enough of the routine work to hand it over, and learned that operational continuity is a better compliment than being indispensable.",
+      details: [
+        "Built VBA tools for invoicing, inventory tracking, and financial forecasting while co-founding the venture part-time.",
+        "Secured ₹600,000 in funding and helped drive a roughly 40% increase in online orders through targeted digital marketing.",
+        "Handed ownership to the remaining partners after six months; the business continued operating.",
+      ],
+      period: "Club House · Jul–Dec 2020",
+      pullQuote: "The business kept running after I left.",
+      metrics: [
+        { value: "6 months", label: "part-time, alongside a full-time job" },
+        { value: "~ 40%", label: "increase in online orders" },
+        { value: "₹600,000", label: "funding secured" },
+        { value: "~ 20%", label: "increase in business valuation" },
+      ],
+      story: [
+        "A small food-and-beverage startup, co-founded with two friends alongside a full-time job. Breakfast and all-day snacks, out of Pune. Nothing glamorous — the goal was to keep the books straight, keep inventory from walking out the door, and keep customers coming back, on evenings and weekends around a day job.",
+        "I built Excel VBA tools for invoicing, ingredient and stock tracking, and financial forecasting; ran the social media campaigns that grew online orders by roughly 40%; and negotiated the vendor and investor relationships that brought in ₹600,000 in funding.",
+        "After six months, ownership transitioned to my two co-founders. That wasn't the plan failing — a full-time job and a part-time startup were never going to both get the time they needed indefinitely. What mattered was whether the business could survive the handover — and it did.",
+      ],
+      retro:
+        "If I could do it again, I would invest more time in documenting operational processes from the beginning instead of creating them reactively as the business grew. That experience taught me that sustainable operations are built before they become necessary.",
+    },
+  ],
+  method: {
+    eyebrow: "02 / What I try to do",
+    headingLine1: "Structure is a",
+    headingEm: "human service.",
+    body: "I ask annoying clarifying questions early, so nobody has to ask expensive ones later. Tools matter, but people need to recognise themselves in the way a system works.",
+    routeSteps: ["INPUT", "CLARITY", "CHANGE"],
+    artifactLabel: "SG / 02",
+  },
+  principles: [
+    {
+      number: "I",
+      title: "Understand before solving",
+      evidence:
+        "A messy spreadsheet, an unclear plan, or a confusing workflow is usually a question before it is a solution. Start by separating the problem into parts.",
+    },
+    {
+      number: "II",
+      title: "Systems over heroics",
+      evidence:
+        "If a process depends on one person always being present, it has not been designed to last. The handover is part of the build.",
+    },
+    {
+      number: "III",
+      title: "Measure before improving",
+      evidence:
+        "From manufacturing quality reports to a job-search dashboard, metrics make the real bottleneck visible before effort is spent in the wrong place.",
+    },
+    {
+      number: "IV",
+      title: "Adoption is the product",
+      evidence:
+        "A technically correct workflow still fails if people cannot or will not use it. Documentation, training, and feedback belong in the scope.",
+    },
+  ],
+  about: {
+    eyebrow: "03 / Where I started and where I am now",
+    headingLine1: "Many contexts.",
+    headingEm: "Same impulse.",
+    lede: "Mechanical systems first. Then production systems. Then people systems—which have fewer bolts and considerably more opinions.",
+    routeSteps: ["MECHANICAL", "DIGITAL", "DURABLE"],
+    educationBadge: "Education",
+  },
+  timeline: [
+    {
+      period: "2025 — now",
+      role: "Quality Specialist Team · part-time",
+      org: "Picnic Technologies · Hamburg",
+      note: "Quality audits, inventory accuracy, and defect-pattern tracking in a fulfilment environment. The shelf knows if the system is lying.",
+    },
+    {
+      period: "2025 — now",
+      role: "Builder, Career Operating System",
+      org: "Personal project · Python, AI & workflow orchestration",
+      note: "Designed the full lifecycle: architecture, prompts, quality controls, deployment, iteration, and the occasional reminder that a human should still look at it.",
+    },
+    {
+      period: "2022 — 2024",
+      role: "M.Sc. Digital Transformation Management",
+      org: "SRH Berlin University of Applied Sciences",
+      note: "Business analytics, digital strategy, and change management, graded very good (2.0) — with two internships running alongside it.",
+      type: "education",
+    },
+    {
+      period: "2024",
+      role: "Intern, Project Management Digitalization",
+      org: "Robert Bosch GmbH · Reutlingen",
+      note: "Jira workflows, PMO reporting, Confluence migration, and system adoption across teams.",
+    },
+    {
+      period: "2023",
+      role: "Intern, Project Development & Finance Advisory",
+      org: "Dornier Suntrace · Hamburg",
+      note: "Renewable-energy feasibility research and Excel VBA forecasting automation, saving about five person-days per month.",
+    },
+    {
+      period: "2020 — 2022",
+      role: "Junior Market Correspondent",
+      org: "GirnarSoft · Jaipur",
+      note: "Automotive market research and competitive analysis for ZigWheels — the reviews behind someone else's car purchase.",
+    },
+    {
+      period: "Jul — Dec 2020",
+      role: "Co-Founder, Club House",
+      org: "Part-time side venture · Pune",
+      note: "A food-and-beverage startup run alongside a full-time job. Handed to my co-founders after six months; it kept running.",
+    },
+    {
+      period: "2019 — 2020",
+      role: "Quality Assurance Engineer",
+      org: "KEIHIN FIE · Chakan",
+      note: "Die-casting, machining, and assembly quality control. A Power BI reporting push cut defects by roughly 15%.",
+    },
+    {
+      period: "May — Oct 2019",
+      role: "Design & Development Engineer",
+      org: "Makerspace Creators' Catalyst · Pune",
+      note: "Client-facing product development with CAD and rapid prototyping — 3D printing and laser cutting, start to finish.",
+    },
+    {
+      period: "2015 — 2019",
+      role: "B.E. Mechanical Engineering",
+      org: "Savitribai Phule Pune University",
+      note: "Where the reorganising instinct started: systems engineering, lean manufacturing, and a lot of CAD.",
+      type: "education",
+    },
+  ],
+  contact: {
+    channelLabel: "CHANNEL / 05",
+    eyebrow: "05 / It'll be a pleasure working with you!",
+    headingLine1: "If the workflow relies on",
+    headingEm: "one spreadsheet and hope,",
+    headingLine3: "we should probably talk.",
+    emailLabel: "Email",
+    linkedinLabel: "LinkedIn",
+    githubLabel: "GitHub",
+    topmateLabel: "Topmate",
+    languages: "English (business fluent) · German (B1) · Hindi & Marathi (native)",
+    sharePage: "Share this page",
+    linkCopied: "Link copied",
+  },
+  footer: {
+    brandLabel: "SG / Operator’s manual",
+    copyright: "© 2026 Sahil Gaji · Revision 01 · Built to outlast the handover.",
+    impressum: "Impressum",
+    datenschutz: "Datenschutz",
+  },
+  sectionStatus: {
+    top: "SYSTEM NOMINAL",
+    work: "INSPECTING EVIDENCE",
+    method: "HUMAN FACTORS DETECTED",
+    about: "PATCH NOTES OPEN",
+    contact: "CONVERSATION CHANNEL OPEN",
+  },
+};

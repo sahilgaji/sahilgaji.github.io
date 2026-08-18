@@ -1,0 +1,277 @@
+import type { SiteContent } from "./types";
+
+export const de: SiteContent = {
+  nav: { work: "Projekte", method: "Ansatz", about: "Werdegang", contact: "Beratung" },
+  headlineVerbs: ["baue", "plane", "optimiere"],
+  hero: {
+    eyebrow: "Unabhängiger Systembauer · Betriebshandbuch, Rev. 01",
+    location: "Hamburg, DE",
+    kicker: "Sahil Gaji / Wer bin ich?",
+    headlineLine1Prefix: "Ich",
+    headlineWord: "Systeme",
+    headlineLine2Prefix: "die",
+    headlineLine2Em: "weiterhin funktionieren",
+    headlineLine3: "auch wenn ich",
+    headlineLine4: "den Raum verlasse.",
+    routeSteps: ["Beobachten", "Bauen", "Einführen"],
+    summary:
+      "Maschinenbauingenieur von Ausbildung. Projektmanagement und digitale Transformation aus Überzeugung. Ich verwandle unübersichtliche Abläufe in klare, akzeptierte Systeme — teils um sie zu verbessern, teils damit sie um 17:58 Uhr aufhören, Leute anzuschreiben.",
+    exploreAria: "Ausgewählte Arbeiten erkunden",
+    artCaption: "Zum Erkunden scrollen",
+    statusLine: "OFFEN FÜR: JUNIOR PM, IT-CONSULTANT, PROZESS- & DIGITAL-TRANSFORMATION-GESPRÄCHE",
+    startConversation: "Gespräch beginnen",
+  },
+  brandTopAria: "Sahil Gaji — nach oben",
+  brandBottomLabel: "SG / Betriebshandbuch",
+  logoAlt: "Sahil Gaji Signet",
+  cvLabel: "Lebenslauf",
+  metrics: [
+    { value: "5+", label: "aktive Jobquellen verknüpft" },
+    { value: "<10 Min", label: "tägliche Systemüberwachung" },
+    { value: "150+", label: "Personen geschult" },
+    { value: "~30%", label: "schnellerer Dokumentenzugriff" },
+  ],
+  work: {
+    eyebrow: "01 / Meine Arbeit",
+    headingLine1: "Chaos, das ich",
+    headingEm: "geordnet habe.",
+    intro: "Keine inszenierten Whiteboards. Nur das, was gebaut wurde, was sich verändert hat, und ob das System die Übergabe überstanden hat.",
+    selectAria: "Fallstudie auswählen",
+    stageSteps: ["AUFNAHME", "AUFBAU", "EINFÜHRUNG", "ÜBERGABE"],
+    stageAria: "Projektphasen",
+    technicalView: "Technische Ansicht",
+    humanTranslation: "Für Menschen",
+    readFullCase: "Ganze Fallstudie lesen",
+    imageAlt: (title) => `Konzeptbild für ${title}`,
+    closeAria: "Fallstudie schließen",
+    retroLabel: "Was ich anders machen würde",
+  },
+  projects: [
+    {
+      number: "01",
+      title: "Karriere-Betriebssystem",
+      subtitle: "Ein sehr wählerischer Roboter, mit menschlicher Aufsicht.",
+      tags: ["Python", "Claude API", "GitHub Actions", "Qualitäts-Gates"],
+      diagnosis: "Diagnose: Wiederkehrende Aufgaben erkannt. Es folgte eine konfigurationsgesteuerte Pipeline.",
+      statement:
+        "Ein modulares, KI-gestütztes Bewerbungssystem, das unstrukturierte Stellenanzeigen mithilfe konfigurierbarer Logik, Konfidenzbewertung und Qualitäts-Gates in belegbare, ATS-taugliche Bewerbungsunterlagen verwandelt.",
+      humanVersion:
+        "Meine Jobsuche war kein zweistündiges Tagesritual mehr. Die Routinearbeit läuft zuerst automatisch; meine Zeit fließt in die Stellen, die wirklich eine Einschätzung verdienen.",
+      details: [
+        "Nutzt eine einzige YAML-Quelle der Wahrheit, fünf berufliche Personas, Eignungsprüfungen und die Empfehlungen BEWERBEN / AMBITIONIERT / ABLEHNEN.",
+        "Verbindet Python, die Claude API, GitHub Actions, SQLite, Google Sheets, Telegram und eine manuelle Prüfoberfläche zu einem durchgängigen Ablauf.",
+        "Reduzierte den täglichen Aufwand für die Jobsuche von rund zwei Stunden auf unter zehn Minuten; die Bearbeitung pro Bewerbung dauert unter dreißig Minuten.",
+      ],
+      period: "Privates Projekt · 2025 — heute",
+      pullQuote: "Die wichtigste Funktion des Systems ist, dass es sich weigert, sich zu bewerben.",
+      metrics: [
+        { value: "< 30 Min", label: "pro Bewerbung" },
+        { value: "2 Std → 10 Min", label: "täglicher Suchaufwand" },
+        { value: "≥ 75%", label: "ATS-Qualitätsschwelle" },
+        { value: "~ 9 von 10", label: "gehen an die Zielspur" },
+      ],
+      story: [
+        "Ich zog für einen Master in Digital Transformation Management nach Deutschland und stieg danach in einen Arbeitsmarkt ein, in dem mein eigenes Profil gegen mich arbeitete: sechs Jahre, zwei Länder, sechs Fachgebiete — keines für sich genommen genug. Bewerbungen fühlten sich an wie eine Blackbox: keine Rückmeldung, keine Möglichkeit zu erkennen, welcher Hebel eigentlich zählte.",
+        "Eine Zeit lang glaubte ich, die Lösung sei mehr Einsatz: mehr Bewerbungen, schnellere Bearbeitung, ein jedes Mal etwas schärferes Anschreiben. Nach Monaten stiller Absagen kam die eigentliche Erkenntnis: Ich optimierte das Falsche.",
+        "Also hörte ich auf, härter zu arbeiten, und baute stattdessen ein System, das besser arbeitet: eines, das prüft, bevor es schreibt, ablehnt, bevor es generiert, und nichts verschickt, das ich nicht von Hand gegengelesen habe.",
+      ],
+      retro:
+        "Würde ich noch einmal von vorn beginnen, würde ich weniger Zeit darauf verwenden, die Automatisierung zu perfektionieren, und mehr Zeit darauf, zu prüfen, ob jede Verbesserung tatsächlich zu besseren Vorstellungsgesprächen führte. Am Anfang machte mir der Aufbau des Systems so viel Spaß, dass ich manchmal den Prozess optimierte, bevor ich bewiesen hatte, dass er das richtige Problem löst. Die größte Erkenntnis: Bessere Entscheidungen zählen mehr als mehr Automatisierung.",
+    },
+    {
+      number: "02",
+      title: "Robert Bosch GmbH",
+      subtitle: "Weil ein neues Tool ohne Akzeptanz teurer Optimismus ist.",
+      tags: ["Jira", "PMO", "Change-Akzeptanz"],
+      diagnosis: "Diagnose: Ein weiteres Tool betrat den Raum. Akzeptanz zählte mehr als Konfiguration.",
+      statement:
+        "Bei Bosch war die Tool-Konfiguration nur das erste Fünftel der Arbeit. Das eigentliche Projekt bestand darin, ein neues System so nützlich zu machen, dass es auch angenommen wurde.",
+      humanVersion:
+        "Ich half Teams, verstreute Tracker gegen eine gemeinsame Arbeitsweise einzutauschen. Die eigentliche Herausforderung war nicht Jira — sie war, sich Raum in den bereits vollen Tagen von über 150 Menschen zu verschaffen.",
+      details: [
+        "Standardisierte Jira-Workflows und PMO-Reporting über drei funktionsübergreifende Projekte hinweg und steigerte die operative Produktivität um etwa 15 %.",
+        "Schulte über 150 Führungskräfte und Teamleitungen, damit das neue Arbeitssystem sich dauerhaft durchsetzte.",
+        "Migrierte die Dokumentation nach Confluence und Docupedia und senkte die Zeit für das Auffinden von Dokumenten um rund 30 %.",
+      ],
+      period: "Robert Bosch GmbH · März–Aug. 2024",
+      pullQuote: "Die Tool-Konfiguration war das leichte Fünftel der Arbeit.",
+      metrics: [
+        { value: "150+", label: "Führungskräfte geschult" },
+        { value: "3", label: "funktionsübergreifende Projekte standardisiert" },
+        { value: "~ 15%", label: "Produktivitätssteigerung" },
+        { value: "~ 30%", label: "schnellerer Dokumentenzugriff" },
+      ],
+      story: [
+        "Sechs Monate als Praktikant im Team Project Management Digitalization bei Bosch, mit Fokus auf die globale Digitalisierung der Lieferkette in internationalen Teams. Das Problem war kein Mangel an Tools — es waren zu viele, uneinheitlich genutzt: OPLs, Roadmaps und Risikotracking verstreut über Tabellen und das jeweils bevorzugte Format der Projektleitung.",
+        "Die Vereinheitlichung auf Jira, für drei funktionsübergreifende Projekte, dauerte wenige Wochen. Das war der leichte Teil. Die übrigen vier Fünftel bestanden aus Schulungen, Dokumentation, auf die Menschen zurückgreifen konnten, und viel Einzelbetreuung für Führungskräfte, die die Dinge jahrelang auf ihre eigene Art gehandhabt hatten.",
+        "Die Confluence-Migration war dasselbe Problem aus einem anderen Blickwinkel — die Verlagerung der Dokumentation von Excel und einem internen Wiki zahlt sich erst aus, wenn die Menschen dem neuen Ort genug vertrauen, um ihre eigenen Kopien aufzugeben. Sobald es sich etablierte, sank die Zugriffszeit um rund 30 %.",
+      ],
+      retro:
+        "Rückblickend hätte ich früher und häufiger Feedback von den Menschen eingeholt, die die Tools tatsächlich nutzen, statt anzunehmen, die erste Version sei bereits intuitiv. Diese Erfahrung bestätigte: Digitale Transformation hat genauso viel mit Menschen zu tun wie mit Technologie.",
+    },
+    {
+      number: "03",
+      title: "Club House",
+      subtitle: "Gründer sollten nicht selbst der Workflow sein.",
+      tags: ["Betrieb", "VBA", "Gründung"],
+      diagnosis: "Diagnose: Zu viel Wissen steckte nur in den Köpfen der Gründer. Dokumentation wurde verordnet.",
+      statement:
+        "Ein Gastronomie-Startup, mitgegründet neben einer Vollzeitstelle. Der eigentliche Test war, ob das Geschäft weiterlaufen konnte, sobald seine Systeme einen anderen Verantwortlichen hatten.",
+      humanVersion:
+        "Ich half, ein Gastronomiegeschäft aufzubauen, automatisierte genug der Routinearbeit, um sie übergeben zu können, und lernte, dass betriebliche Kontinuität das bessere Kompliment ist als Unentbehrlichkeit.",
+      details: [
+        "Baute VBA-Tools für Rechnungsstellung, Bestandsverfolgung und Finanzplanung, während ich das Unternehmen nebenberuflich mitgründete.",
+        "Sicherte eine Finanzierung von ₹600.000 und trug durch gezieltes digitales Marketing zu einem Anstieg der Online-Bestellungen um rund 40 % bei.",
+        "Übergab die Eigentümerschaft nach sechs Monaten an die verbleibenden Partner; das Geschäft lief weiter.",
+      ],
+      period: "Club House · Jul.–Dez. 2020",
+      pullQuote: "Das Geschäft lief weiter, nachdem ich gegangen war.",
+      metrics: [
+        { value: "6 Monate", label: "nebenberuflich, neben einer Vollzeitstelle" },
+        { value: "~ 40%", label: "mehr Online-Bestellungen" },
+        { value: "₹600.000", label: "Finanzierung gesichert" },
+        { value: "~ 20%", label: "höhere Unternehmensbewertung" },
+      ],
+      story: [
+        "Ein kleines Gastronomie-Startup, mitgegründet mit zwei Freunden neben einer Vollzeitstelle. Frühstück und Snacks den ganzen Tag über, aus Pune. Nichts Glamouröses — das Ziel war, die Bücher sauber zu halten, den Warenbestand vor Schwund zu schützen und Kunden zum Wiederkommen zu bewegen, abends und am Wochenende neben dem Hauptjob.",
+        "Ich baute Excel-VBA-Tools für Rechnungsstellung, Zutaten- und Bestandsverfolgung sowie Finanzplanung; führte die Social-Media-Kampagnen, die Online-Bestellungen um rund 40 % steigerten; und verhandelte die Lieferanten- und Investorenbeziehungen, die ₹600.000 an Finanzierung einbrachten.",
+        "Nach sechs Monaten ging die Eigentümerschaft an meine beiden Mitgründer über. Das war kein gescheiterter Plan — eine Vollzeitstelle und ein nebenberufliches Startup konnten nicht auf Dauer beide die nötige Zeit bekommen. Entscheidend war, ob das Geschäft die Übergabe überstehen würde — und das tat es.",
+      ],
+      retro:
+        "Könnte ich es noch einmal machen, würde ich von Anfang an mehr Zeit in die Dokumentation betrieblicher Abläufe investieren, statt sie erst reaktiv zu erstellen, während das Geschäft wuchs. Diese Erfahrung lehrte mich: Nachhaltige Abläufe entstehen, bevor sie notwendig werden.",
+    },
+  ],
+  method: {
+    eyebrow: "02 / Worum ich mich bemühe",
+    headingLine1: "Struktur ist ein",
+    headingEm: "Dienst am Menschen.",
+    body: "Ich stelle früh die lästigen Klärungsfragen, damit später niemand die teuren stellen muss. Tools sind wichtig, aber Menschen müssen sich in der Funktionsweise eines Systems wiederfinden.",
+    routeSteps: ["INPUT", "KLARHEIT", "VERÄNDERUNG"],
+    artifactLabel: "SG / 02",
+  },
+  principles: [
+    {
+      number: "I",
+      title: "Erst verstehen, dann lösen",
+      evidence:
+        "Eine unübersichtliche Tabelle, ein unklarer Plan oder ein verwirrender Ablauf ist meist zuerst eine Frage, bevor er eine Lösung ist. Zuerst das Problem in Teile zerlegen.",
+    },
+    {
+      number: "II",
+      title: "Systeme statt Heldentum",
+      evidence:
+        "Hängt ein Prozess davon ab, dass eine Person immer anwesend ist, wurde er nicht für die Dauer entworfen. Die Übergabe gehört zum Aufbau dazu.",
+    },
+    {
+      number: "III",
+      title: "Erst messen, dann verbessern",
+      evidence:
+        "Von Qualitätsberichten in der Fertigung bis zum Dashboard für die Jobsuche: Kennzahlen machen den eigentlichen Engpass sichtbar, bevor Aufwand am falschen Ort investiert wird.",
+    },
+    {
+      number: "IV",
+      title: "Akzeptanz ist das Produkt",
+      evidence:
+        "Ein technisch korrekter Ablauf scheitert trotzdem, wenn Menschen ihn nicht nutzen können oder wollen. Dokumentation, Schulung und Feedback gehören zum Projektumfang.",
+    },
+  ],
+  about: {
+    eyebrow: "03 / Wo ich begonnen habe und wo ich jetzt bin",
+    headingLine1: "Viele Kontexte.",
+    headingEm: "Derselbe Antrieb.",
+    lede: "Zuerst mechanische Systeme. Dann Produktionssysteme. Dann Systeme aus Menschen — die haben weniger Schrauben und deutlich mehr Meinungen.",
+    routeSteps: ["MECHANISCH", "DIGITAL", "DAUERHAFT"],
+    educationBadge: "Ausbildung",
+  },
+  timeline: [
+    {
+      period: "2025 — heute",
+      role: "Quality-Specialist-Team · Teilzeit",
+      org: "Picnic Technologies · Hamburg",
+      note: "Qualitätsaudits, Bestandsgenauigkeit und Fehlermuster-Tracking in einem Fulfillment-Umfeld. Das Regal weiß, wenn das System lügt.",
+    },
+    {
+      period: "2025 — heute",
+      role: "Entwickler, Karriere-Betriebssystem",
+      org: "Privates Projekt · Python, KI & Workflow-Orchestrierung",
+      note: "Entwarf den gesamten Lebenszyklus: Architektur, Prompts, Qualitätskontrollen, Deployment, Iteration — und die gelegentliche Erinnerung, dass trotzdem noch ein Mensch draufschauen sollte.",
+    },
+    {
+      period: "2022 — 2024",
+      role: "M.Sc. Digital Transformation Management",
+      org: "SRH Berlin University of Applied Sciences",
+      note: "Business Analytics, digitale Strategie und Change-Management, benotet mit sehr gut (2,0) — mit zwei Praktika parallel dazu.",
+      type: "education",
+    },
+    {
+      period: "2024",
+      role: "Praktikant, Project Management Digitalization",
+      org: "Robert Bosch GmbH · Reutlingen",
+      note: "Jira-Workflows, PMO-Reporting, Confluence-Migration und System-Akzeptanz teamübergreifend.",
+    },
+    {
+      period: "2023",
+      role: "Praktikant, Project Development & Finance Advisory",
+      org: "Dornier Suntrace · Hamburg",
+      note: "Machbarkeitsstudien im Bereich erneuerbare Energien und Automatisierung der Finanzplanung mit Excel VBA, mit einer Ersparnis von rund fünf Personentagen im Monat.",
+    },
+    {
+      period: "2020 — 2022",
+      role: "Junior-Marktkorrespondent",
+      org: "GirnarSoft · Jaipur",
+      note: "Automobilmarktforschung und Wettbewerbsanalyse für ZigWheels — die Testberichte hinter dem Autokauf anderer Leute.",
+    },
+    {
+      period: "Jul. — Dez. 2020",
+      role: "Mitgründer, Club House",
+      org: "Nebenberufliches Projekt · Pune",
+      note: "Ein Gastronomie-Startup neben einer Vollzeitstelle. Nach sechs Monaten an die Mitgründer übergeben; es lief weiter.",
+    },
+    {
+      period: "2019 — 2020",
+      role: "Qualitätsingenieur",
+      org: "KEIHIN FIE · Chakan",
+      note: "Qualitätskontrolle in Druckguss, Zerspanung und Montage. Ein Power-BI-Reporting senkte die Fehlerquote um rund 15 %.",
+    },
+    {
+      period: "Mai — Okt. 2019",
+      role: "Konstruktions- und Entwicklungsingenieur",
+      org: "Makerspace Creators' Catalyst · Pune",
+      note: "Kundenorientierte Produktentwicklung mit CAD und Rapid Prototyping — 3D-Druck und Laserschneiden, von Anfang bis Ende.",
+    },
+    {
+      period: "2015 — 2019",
+      role: "B.E. Mechanical Engineering",
+      org: "Savitribai Phule Pune University",
+      note: "Wo der Ordnungs-Instinkt begann: Systems Engineering, Lean Manufacturing und jede Menge CAD.",
+      type: "education",
+    },
+  ],
+  contact: {
+    channelLabel: "CHANNEL / 05",
+    eyebrow: "05 / Ich freue mich auf die Zusammenarbeit!",
+    headingLine1: "Wenn der Ablauf auf",
+    headingEm: "einer Tabelle und Hoffnung beruht,",
+    headingLine3: "sollten wir wohl reden.",
+    emailLabel: "E-Mail",
+    linkedinLabel: "LinkedIn",
+    githubLabel: "GitHub",
+    topmateLabel: "Topmate",
+    languages: "Englisch (verhandlungssicher) · Deutsch (B1) · Hindi & Marathi (Muttersprache)",
+    sharePage: "Seite teilen",
+    linkCopied: "Link kopiert",
+  },
+  footer: {
+    brandLabel: "SG / Betriebshandbuch",
+    copyright: "© 2026 Sahil Gaji · Revision 01 · Gebaut, um die Übergabe zu überstehen.",
+    impressum: "Impressum",
+    datenschutz: "Datenschutz",
+  },
+  sectionStatus: {
+    top: "SYSTEM NORMAL",
+    work: "PRÜFT NACHWEISE",
+    method: "MENSCHLICHE FAKTOREN ERKANNT",
+    about: "PATCH NOTES OFFEN",
+    contact: "GESPRÄCHSKANAL OFFEN",
+  },
+};
