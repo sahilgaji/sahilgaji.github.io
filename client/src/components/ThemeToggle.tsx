@@ -1,4 +1,4 @@
-import { AnimatePresence, motion } from "framer-motion";
+import { motion } from "framer-motion";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "../contexts/ThemeContext";
 
@@ -12,23 +12,19 @@ export function ThemeToggle() {
   return (
     <button
       type="button"
-      className="theme-toggle"
+      className="switch-toggle"
+      role="switch"
+      aria-checked={isDark}
       onClick={toggleTheme}
       aria-label={isDark ? "Switch to day theme" : "Switch to night theme"}
-      aria-pressed={isDark}
     >
-      <AnimatePresence mode="wait" initial={false}>
-        <motion.span
-          key={theme}
-          initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
-          animate={{ opacity: 1, rotate: 0, scale: 1 }}
-          exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
-          transition={{ duration: 0.35, ease: [0.23, 1, 0.32, 1] }}
-          className="theme-toggle-icon"
-        >
-          {isDark ? <Moon size={15} /> : <Sun size={15} />}
-        </motion.span>
-      </AnimatePresence>
+      <span className={isDark ? "switch-icon" : "switch-icon is-active"}><Sun size={12} /></span>
+      <span className={isDark ? "switch-icon is-active" : "switch-icon"}><Moon size={12} /></span>
+      <motion.span
+        className="switch-thumb"
+        animate={{ x: isDark ? "100%" : "0%" }}
+        transition={{ type: "spring", stiffness: 500, damping: 32 }}
+      />
     </button>
   );
 }

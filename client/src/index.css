@@ -104,10 +104,12 @@
   .brand-mark { width: 30px; height: 30px; object-fit: contain; }
   .cv-link { display: inline-flex; align-items: center; gap: .35rem; color: var(--ink); font-family: var(--font-mono); font-size: .67rem; font-weight: 500; letter-spacing: .06em; text-decoration: none; text-transform: uppercase; }
   .topbar-actions { display: flex; align-items: center; gap: 1rem; }
-  .theme-toggle { position: relative; display: inline-flex; align-items: center; justify-content: center; width: 32px; height: 32px; border: 1px solid var(--line); border-radius: 50%; background: transparent; color: var(--ink); padding: 0; overflow: hidden; cursor: pointer; transition: border-color 180ms var(--ease-out), color 180ms var(--ease-out); }
-  .theme-toggle:hover { border-color: var(--blue-text); color: var(--blue-text); }
-  .theme-toggle-icon { display: flex; align-items: center; justify-content: center; }
-  .language-toggle-icon { font-family: var(--font-mono); font-size: .62rem; font-weight: 600; letter-spacing: .02em; }
+  .switch-toggle { position: relative; display: flex; width: 56px; height: 26px; border: 1px solid var(--line); border-radius: 999px; background: var(--paper-deep); padding: 2px; cursor: pointer; transition: border-color 180ms var(--ease-out); }
+  .switch-toggle:hover { border-color: var(--blue-text); }
+  .switch-toggle.language-switch { width: 66px; }
+  .switch-icon { position: relative; z-index: 1; flex: 1 1 50%; display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-family: var(--font-mono); font-size: .58rem; font-weight: 600; letter-spacing: .02em; transition: color 180ms var(--ease-out); }
+  .switch-icon.is-active { color: white; }
+  .switch-thumb { position: absolute; z-index: 0; top: 2px; left: 2px; width: calc(50% - 2px); height: calc(100% - 4px); border-radius: 999px; background: var(--blue); box-shadow: 0 1px 3px rgba(20,20,18,.35); }
   .dock-nav { position: fixed; z-index: 45; left: 50%; bottom: calc(1.1rem + env(safe-area-inset-bottom)); transform: translateX(-50%); max-width: calc(100vw - 1.6rem); }
   .dock-panel { display: flex; align-items: center; gap: .3rem; padding: .4rem; border-radius: 999px; background: color-mix(in srgb, var(--paper) 70%, transparent); backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px); border: 1px solid rgba(255,255,255,.5); box-shadow: 0 16px 40px rgba(20,20,18,.5); overflow-x: auto; scrollbar-width: none; }
   .dock-panel::-webkit-scrollbar { display: none; }
