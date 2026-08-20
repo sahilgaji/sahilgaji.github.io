@@ -26,8 +26,13 @@ export type TimelineEntryContent = {
 
 export type PrincipleContent = { number: string; title: string; evidence: string };
 
+export type SkillBarContent = { name: string; level: number; tier: string };
+export type SkillTagContent = { name: string; category: string };
+export type SkillCategoryContent = { id: string; label: string };
+export type CertificationContent = { title: string; issuer: string };
+
 export type SiteContent = {
-  nav: { work: string; method: string; about: string; contact: string };
+  nav: { work: string; method: string; about: string; skills: string; contact: string };
   headlineVerbs: string[];
   hero: {
     eyebrow: string;
@@ -85,6 +90,20 @@ export type SiteContent = {
     educationBadge: string;
   };
   timeline: TimelineEntryContent[];
+  skills: {
+    eyebrow: string;
+    headingLine1: string;
+    headingEm: string;
+    intro: string;
+    artifactLabel: string;
+    barsLabel: string;
+    bars: SkillBarContent[];
+    filterAllLabel: string;
+    categories: SkillCategoryContent[];
+    tags: SkillTagContent[];
+    certsLabel: string;
+    certifications: CertificationContent[];
+  };
   contact: {
     channelLabel: string;
     eyebrow: string;
@@ -105,6 +124,7 @@ export type SiteContent = {
     work: string;
     method: string;
     about: string;
+    skills: string;
     contact: string;
   };
 };

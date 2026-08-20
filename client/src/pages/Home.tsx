@@ -10,6 +10,7 @@ import { Typewriter } from "../components/Typewriter";
 import { TextRoll } from "../components/TextRoll";
 import { ThemeToggle } from "../components/ThemeToggle";
 import { LanguageToggle } from "../components/LanguageToggle";
+import { SkillsSection } from "../components/SkillsSection";
 import { useLanguage } from "../contexts/LanguageContext";
 import type { ProjectContent } from "../content";
 import {
@@ -38,6 +39,7 @@ export default function Home() {
     { id: "work", label: content.nav.work },
     { id: "method", label: content.nav.method },
     { id: "about", label: content.nav.about },
+    { id: "skills", label: content.nav.skills },
     { id: "contact", label: content.nav.contact },
   ];
   const projects: Project[] = content.projects.map((p, i) => ({ ...p, image: PROJECT_IMAGES[i] }));
@@ -57,7 +59,7 @@ export default function Home() {
 
   useEffect(() => {
     const updateActiveSection = () => {
-      const sections = ["work", "method", "about", "contact"] as const;
+      const sections = ["work", "method", "about", "skills", "contact"] as const;
       const checkpoint = window.scrollY + window.innerHeight * 0.34;
       const active = sections.findLast((id) => {
         const element = document.getElementById(id);
@@ -235,6 +237,8 @@ export default function Home() {
             <div className="timeline">{timeline.map((item, index) => <article className={item.type === "education" ? "timeline-item is-education" : "timeline-item"} key={item.period + item.role}><span className="timeline-dot" /><span className="timeline-period">{item.period}</span><div>{item.type === "education" && <span className="timeline-badge">{content.about.educationBadge}</span>}<h3>{item.role}</h3><p className="timeline-org">{item.org}</p><p className="timeline-note">{item.note}</p></div><span className="timeline-index">{String(index + 1).padStart(2, "0")}</span></article>)}</div>
           </div>
         </section>
+
+        <SkillsSection />
 
         <section id="contact" className="contact-section section-frame section-anchor">
           <div className="contact-artifact" aria-hidden="true"><span>{content.contact.channelLabel}</span><i /><i /></div>
